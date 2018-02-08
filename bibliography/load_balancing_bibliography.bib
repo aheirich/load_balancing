@@ -1,0 +1,748 @@
+
+@inproceedings{Flegar:2017:OLI:3149704.3149767,
+author = {Flegar, Goran and Anzt, Hartwig},
+title = {Overcoming Load Imbalance for Irregular Sparse Matrices},
+booktitle = {Proceedings of the Seventh Workshop on Irregular Applications: Architectures and Algorithms},
+series = {IA3'17},
+year = {2017},
+isbn = {978-1-4503-5136-2},
+location = {Denver, CO, USA},
+pages = {2:1--2:8},
+articleno = {2},
+numpages = {8},
+url = {http://doi.acm.org/10.1145/3149704.3149767},
+doi = {10.1145/3149704.3149767},
+acmid = {3149767},
+publisher = {ACM},
+address = {New York, NY, USA},
+keywords = {GPU, Irregular access pattern, Load Balancing, Sparse Matrix Vector Product},
+abstract = "In this paper we propose a load-balanced GPU kernel for computing
+the sparse matrix vector (SpMV) product. Making heavy use of the
+latest GPU programming features, we also enable satisfying performance for irregular and unbalanced matrices.
+In a performance comparison using 400 test matrices we reveal the new kernel being superior to the most popular SpMV implementations."
+}
+
+
+
+
+
+@article{PEARCE2017,
+title = "Exploring dynamic load imbalance solutions with the CoMD proxy application",
+journal = "Future Generation Computer Systems",
+year = "2017",
+issn = "0167-739X",
+doi = "https://doi.org/10.1016/j.future.2017.12.010",
+url = "http://www.sciencedirect.com/science/article/pii/S0167739X17300560",
+author = "Olga Pearce and Hadia Ahmed and Rasmus W. Larsen and Peter Pirkelbauer and David F. Richards",
+abstract = "Proxy applications are developed to simplify studying parallel performance of scientific simulations and to test potential solutions for performance problems. However, proxy applications are typically too simple to allow work migration or to represent the load imbalance of their parent applications. To study the ability of load balancing solutions to balance work effectively, we enable work migration in one of the Exascale Co-design Center for Materials in Extreme Environments (ExMatEx) [1] applications, CoMD. We design a methodology to parameterize three key aspects necessary for studying load imbalance correction: (1) the granularity with which work can be migrated; (2) the initial load imbalance; (3) the dynamic load imbalance (how quickly the load changes over time). We present a study of the impact of flexibility in work migration in CoMD on load balance and the associated rebalancing costs for a wide range of initial and dynamic load imbalance scenarios."
+}
+
+
+
+@article{BERLINSKA201814,
+title = "Comparing load-balancing algorithms for MapReduce under Zipfian data skews",
+journal = "Parallel Computing",
+volume = "72",
+pages = "14 - 28",
+year = "2018",
+issn = "0167-8191",
+doi = "https://doi.org/10.1016/j.parco.2017.12.003",
+url = "http://www.sciencedirect.com/science/article/pii/S0167819117302065",
+author = "Joanna Berlinska and Maciej Drozdowski",
+keywords = "MapReduce, Load balancing, Scheduling, Performance evaluation",
+abstract = "In this paper, we analyze applicability of various load-balancing methods in countering data skew in MapReduce computations. A MapReduce job consists of several phases: mapping, shuffling data, sorting and reducing. The distribution of the work in the last three phases is data-driven, and unequal distribution of the data keys may cause imbalance in the computation completion times and prolonged execution of the whole job. We propose algorithms of four different types for balancing computational effort in reduce-heavy MapReduce jobs and evaluate their performance under various degrees of data skew and system parameters. By applying an innovative method of visualizing algorithm dominance conditions, we are able to determine conditions under which certain load-balancing algorithms are capable of scheduling MapReduce computations well. We conclude that no single algorithm is a panacea and hybrid approaches are necessary."
+}
+
+
+
+@inproceedings{Diamond:2017:DLB:3148226.3148236,
+author = {Diamond, Gerrett and Smith, Cameron W. and Shephard, Mark S.},
+title = {Dynamic Load Balancing of Massively Parallel Unstructured Meshes},
+booktitle = {Proceedings of the 8th Workshop on Latest Advances in Scalable Algorithms for Large-Scale Systems},
+series = {ScalA '17},
+year = {2017},
+isbn = {978-1-4503-5125-6},
+location = {Denver, Colorado},
+pages = {9:1--9:7},
+articleno = {9},
+numpages = {7},
+url = {http://doi.acm.org/10.1145/3148226.3148236},
+doi = {10.1145/3148226.3148236},
+acmid = {3148236},
+publisher = {ACM},
+address = {New York, NY, USA},
+keywords = {dynamic load balancing, hypergraph, multigraph, partition improvement},
+abstract = "Simulating systems with evolving relational structures on massively parallel computers require the computational work to be evenly distributed across the processing resources throughout the simulation. Adaptive, unstructured, mesh-based  finite element and  finite volume tools best exemplify this need. We present EnGPar and its diffusive partition improvement method that accounts for multiple application specified criteria. EnGPar performance is compared against its predecessor, ParMA. Specifically, partition improvement results are provided on up to 512Ki processes of the Argonne Leadership Computing Facility Mira BlueGene/Q system."
+}
+
+
+
+@Article{Bhatti2017,
+author="Bhatti, Muhammad Khurram
+and Oz, Isil
+and Amin, Sarah
+and Mushtaq, Maria
+and Farooq, Umer
+and Popov, Konstantin
+and Brorsson, Mats",
+title="Locality-aware task scheduling for homogeneous parallel computing systems",
+journal="Computing",
+year="2017",
+month="Nov",
+day="01",
+abstract="In systems with complex many-core cache hierarchy, exploiting data locality can significantly reduce execution time and energy consumption of parallel applications. Locality can be exploited at various hardware and software layers. For instance, by implementing private and shared caches in a multi-level fashion, recent hardware designs are already optimised for locality. However, this would all be useless if the software scheduling does not cast the execution in a manner that promotes locality available in the programs themselves. Since programs for parallel systems consist of tasks executed simultaneously, task scheduling becomes crucial for the performance in multi-level cache architectures. This paper presents a heuristic algorithm for homogeneous multi-core systems called locality-aware task scheduling (LeTS). The LeTS heuristic is a work-conserving algorithm that takes into account both locality and load balancing in order to reduce the execution time of target applications. The working principle of LeTS is based on two distinctive phases, namely; working task group formation phase (WTG-FP) and working task group ordering phase (WTG-OP). The WTG-FP forms groups of tasks in order to capture data reuse across tasks while the WTG-OP determines an optimal order of execution for task groups that minimizes the reuse distance of shared data between tasks. We have performed experiments using randomly generated task graphs by varying three major performance parameters, namely: (1) communication to computation ratio (CCR) between 0.1 and 1.0, (2) application size, i.e., task graphs comprising of 50-, 100-, and 300-tasks per graph, and (3) number of cores with 2-, 4-, 8-, and 16-cores execution scenarios. We have also performed experiments using selected real-world applications. The LeTS heuristic reduces overall execution time of applications by exploiting inter-task data locality. Results show that LeTS outperforms state-of-the-art algorithms in amortizing inter-task communication cost.",
+issn="1436-5057",
+doi="10.1007/s00607-017-0581-6",
+url="https://doi.org/10.1007/s00607-017-0581-6"
+}
+
+
+
+
+
+@InProceedings{10.1007/978-981-10-6442-5_56,
+author="Shao, Bo
+and Lai, Siyan
+and Yang, Bo
+and Xu, Ying
+and Lin, Xiaola",
+editor="Chen, Guoliang
+and Shen, Hong
+and Chen, Mingrui",
+title="A Load Balancing Strategy for Monte Carlo Method in PageRank Problem",
+booktitle="Parallel Architecture, Algorithm and Programming",
+year="2017",
+publisher="Springer Singapore",
+address="Singapore",
+pages="594--609",
+abstract="PageRank algorithm is key component of a wide range of applications. Former study has demonstrated that PageRank problem can be effectively solved through Monte Carlo method. In this paper, we focus on efficiently parallel implementing Monte Carlo method for PageRank algorithm based on GPU. Aiming at GPU, a parallel implementation must consider instruction divergence on the single instruction multiple data (SIMD) compute units. Due to the fact that low-discrepancy sequences are determined sequences, we adopt the low-discrepancy sequences to simulate the random walks in PageRank computations in our load balancing strategy. Furthermore, we allocate each thread of a block to compute a random walk of each vertex with a same low-discrepancy sequence. As a result, no idle thread exists in the PageRank computations and warp execution efficiency is up to 99{\%}. Moreover, our strategy loads the low-discrepancy sequences into shared memory to reduce the data fetch cost. The results of experiments show that our strategy can provide high efficiency for Monte Carlo method in PageRank problem in GPGPU environment.",
+isbn="978-981-10-6442-5"
+}
+
+
+
+@INPROCEEDINGS{8082085,
+author={C. Zhang and Y. Xu and J. Zhou and Z. Xu and L. Lu and J. Lu},
+booktitle={2017 23rd International Conference on Automation and Computing (ICAC)},
+title={Dynamic load balancing on multi-GPUs system for big data processing},
+year={2017},
+volume={},
+number={},
+pages={1-6},
+abstract={The powerful parallel computing capability of modern GPU (Graphics Processing Unit) processors has attracted increasing attentions of researchers and engineers who had conducted a large number of GPU-based acceleration research projects. However, current single GPU based solutions are still incapable of fulfilling the real-time computational requirements from the latest big data applications. Thus, the multi-GPU solution has become a trend for many real-time application attempts. In those cases, the computational load balancing over the multiple GPU nodes is often the key bottleneck that needs to be further studied to ensure the best possible performance. The existing load balancing approaches are mainly based on the assumption that all GPUs in the same system provide equal computational performance, and had fallen short to address the situations from heterogeneous multi-GPU systems. This paper presents a novel dynamic load balancing model for heterogeneous multi-GPU systems based on the fuzzy neural network (FNN) framework. The devised model has been implemented and demonstrated in a case study for improving the computational performance of a two dimensional (2D) discrete wavelet transform (DWT). Experiment results show that this dynamic load balancing model has enabled a high computational throughput that can satisfy the real-time and accuracy requirements from many big data processing applications.},
+keywords={Big Data;discrete wavelet transforms;fuzzy neural nets;graphics processing units;parallel architectures;2D-DWT;Big Data processing;FNN;GPU processors;GPU-based acceleration research projects;Graphics Processing Unit;accuracy requirements;current single GPU based solutions;dynamic load balancing model;fuzzy neural network;heterogeneous multiGPU systems;multiple GPU nodes;parallel computing;two dimensional discrete wavelet transform;Computational modeling;Data models;Fuzzy neural networks;Graphics processing units;Load management;Load modeling;Real-time systems;DWT;Fuzzy Neural Network;Load Balancing;Multi-GPU},
+doi={10.23919/IConAC.2017.8082085},
+ISSN={},
+month={Sept},
+}
+
+
+@inproceedings{Gao:2017:MPL:3110224.3110240,
+author = {Gao, Tianhan and Luo, Xiaoyu and Guo, Nan},
+title = {Multi-frame Prediction Load Balancing Algorithm for Sortfirst Parallel Rendering},
+booktitle = {Proceedings of the 2017 International Conference on Computer Graphics and Digital Image Processing},
+series = {CGDIP '17},
+year = {2017},
+isbn = {978-1-4503-5236-9},
+location = {Prague, Czech Republic},
+pages = {3:1--3:5},
+articleno = {3},
+numpages = {5},
+url = {http://doi.acm.org/10.1145/3110224.3110240},
+doi = {10.1145/3110224.3110240},
+acmid = {3110240},
+publisher = {ACM},
+address = {New York, NY, USA},
+keywords = {CSLB, load balancing, multi-frame prediction, sort first parallel rendering},
+abstract = "In order to solve the problem of the load unbalance in sort-first parallel rendering system, this paper proposes a multi-frame prediction algorithm derived from CSLB algorithm to improve performence in parallel rendering, which introduces multi-frame feedback prediction to achieve better practical results. The experiment is carried out on the Equalizer parallel rendering framework and the results show that the proposed algorithm can improve the system frame rate well compared with the CSLB algorithm in terms of sort-first parallel rendering."
+}
+
+
+@ARTICLE{8017633,
+author={J. Zhang and H. Guo and F. Hong and X. Yuan and T. Peterka},
+journal={IEEE Transactions on Visualization and Computer Graphics},
+title={Dynamic Load Balancing Based on Constrained K-D Tree Decomposition for Parallel Particle Tracing},
+year={2018},
+volume={24},
+number={1},
+pages={954-963},
+abstract={We propose a dynamically load-balanced algorithm for parallel particle tracing, which periodically attempts to evenly redistribute particles across processes based on k-d tree decomposition. Each process is assigned with (1) a statically partitioned, axis-aligned data block that partially overlaps with neighboring blocks in other processes and (2) a dynamically determined k-d tree leaf node that bounds the active particles for computation; the bounds of the k-d tree nodes are constrained by the geometries of data blocks. Given a certain degree of overlap between blocks, our method can balance the number of particles as much as possible. Compared with other load-balancing algorithms for parallel particle tracing, the proposed method does not require any preanalysis, does not use any heuristics based on flow features, does not make any assumptions about seed distribution, does not move any data blocks during the run, and does not need any master process for work redistribution. Based on a comprehensive performance study up to 8K processes on a Blue Gene/Q system, the proposed algorithm outperforms baseline approaches in both load balance and scalability on various flow visualization and analysis problems.},
+keywords={resource allocation;trees (mathematics);Blue Gene/Q system;active particles;constrained K-D tree decomposition;data block;dynamically determined k-d tree leaf;dynamically load-balanced algorithm;flow analysis;flow visualization;k-d tree nodes;load-balancing algorithms;master process;neighboring blocks;parallel particle tracing;scalability;Algorithm design and analysis;Data visualization;Heuristic algorithms;Load management;Load modeling;Partitioning algorithms;Scalability;Parallel particle tracing;dynamic load balancing;k-d trees;performance analysis},
+doi={10.1109/TVCG.2017.2744059},
+ISSN={1077-2626},
+month={Jan},
+
+}
+
+
+
+
+@INPROCEEDINGS{7993387,
+author={F. Busato and N. Bombieri},
+booktitle={2017 12th IEEE International Symposium on Industrial Embedded Systems (SIES)},
+title={A performance, power, and energy efficiency analysis of load balancing techniques for GPUs},
+year={2017},
+volume={},
+number={},
+pages={1-8},
+abstract={Load balancing is a key aspect to face when implementing any parallel application for Graphic Processing Units (GPUs). It is particularly crucial if one considers that it strongly impacts on performance, power and energy efficiency of the whole application. Many different partitioning techniques have been proposed in the past to deal with either very regular workloads (static techniques) or with irregular workloads (dynamic techniques). Nevertheless, it has been proven that no one of them provides a sound trade-off, from the performance point of view, when applied in both cases. More recently, a dynamic multi-phase approach has been proposed for workload partitioning and work item-to-thread allocation. Thanks to its very low complexity and several architecture-oriented optimizations, it can provide the best results in terms of performance with respect to the other approaches in the literature with both regular and irregular datasets. Besides the performance comparison, no analysis has been conducted to show the effect of all these techniques on power and energy consumption on both GPUs for desktop and GPUs for low-power embedded systems. This paper shows and compares, in terms of performance, power, and energy efficiency, the experimental results obtained by applying all the different static, dynamic, and semi-dynamic techniques at the state of the art to different datasets and over different GPU technologies (i.e., NVIDIA Maxwell GTX 980 device, NVIDIA Jetson Kepler TK1 low-power embedded system).},
+keywords={embedded systems;graphics processing units;multi-threading;parallel processing;power aware computing;resource allocation;GPU;energy efficiency analysis;graphic processing units;load balancing;low-power embedded systems;parallel application;performance analysis;power analysis;work item-to-thread allocation;Arrays;Complexity theory;Graphics processing units;Heuristic algorithms;Instruction sets;Load management;Performance evaluation},
+doi={10.1109/SIES.2017.7993387},
+ISSN={},
+month={June},
+
+}
+
+
+
+@INPROCEEDINGS{7967109,
+author={P. Berenbrink and P. Kling and C. Liaw and A. Mehrabian},
+booktitle={2017 IEEE International Parallel and Distributed Processing Symposium (IPDPS)},
+title={Tight Load Balancing Via Randomized Local Search},
+year={2017},
+volume={},
+number={},
+pages={192-201},
+abstract={We consider the following balls-into-bins process with n bins and m balls: Each ball is equipped with a mutually independent exponential clock of rate 1. Whenever a ball's clock rings, the ball samples a random bin and moves there if the number of balls in the sampled bin is smaller than in its current bin. This simple process models a typical load balancing problem where users (balls) seek a selfish improvement of their assignment to resources (bins). From a game theoretic perspective, this is a randomized approach to the well-known KP model [1], while it is known as Randomized Local Search (RLS) in load balancing literature [2], [3]. Up to now, the best bound on the expected time to reach perfect balance was O((ln n)2+ln(n).n2/m) due to [3]. We improve this to an asymptotically tight O(ln(n)+n2/m). Our analysis is based on the crucial observation that performing destructive moves (reversals of RLS moves) cannot decrease the balancing time. This allows us to simplify problem instances and to ignore ``inconvenient moves'' in the analysis.},
+keywords={game theory;resource allocation;search problems;KP model;RLS;ball clock rings;balls-into-bins process;game theory;random bin;randomized local search;tight load balancing;Clocks;Dynamic scheduling;Games;Load management;Load modeling;Protocols;Random variables;Balls-into-bins;coupling;load balancing;randomized local search},
+doi={10.1109/IPDPS.2017.52},
+ISSN={},
+month={May},}
+
+
+
+@article{DEVINE2005133,
+title = "New challenges in dynamic load balancing",
+journal = "Applied Numerical Mathematics",
+volume = "52",
+number = "2",
+pages = "133 - 152",
+year = "2005",
+note = "ADAPT '03: Conference on Adaptive Methods for Partial Differential Equations and Large-Scale Computation",
+issn = "0168-9274",
+doi = "https://doi.org/10.1016/j.apnum.2004.08.028",
+url = "http://www.sciencedirect.com/science/article/pii/S0168927404001631",
+author = "Karen D. Devine and Erik G. Boman and Robert T. Heaphy and Bruce A. Hendrickson and James D. Teresco and Jamal Faik and Joseph E. Flaherty and Luis G. Gervasio",
+keywords = "Dynamic load balancing, Partitioning, Zoltan, Geometric partitioning, Hypergraph, Resource-aware load balancing",
+abstract = "Data partitioning and load balancing are important components of parallel computations. Many different partitioning strategies have been developed, with great effectiveness in parallel applications. But the load-balancing problem is not yet solved completely; new applications and architectures require new partitioning features. Existing algorithms must be enhanced to support more complex applications. New models are needed for non-square, non-symmetric, and highly connected systems arising from applications in biology, circuits, and materials simulations. Increased use of heterogeneous computing architectures requires partitioners that account for non-uniform computing, network, and memory resources. And, for greatest impact, these new capabilities must be delivered in toolkits that are robust, easy-to-use, and applicable to a wide range of applications. In this paper, we discuss our approaches to addressing these issues within the Zoltan Parallel Data Services toolkit."
+}
+
+
+@INPROCEEDINGS{4227986,
+author={U. V. Catalyurek and E. G. Boman and K. D. Devine and D. Bozdag and R. Heaphy and Lee Ann Riesen},
+booktitle={2007 IEEE International Parallel and Distributed Processing Symposium},
+title={Hypergraph-based Dynamic Load Balancing for Adaptive Scientific Computations},
+year={2007},
+volume={},
+number={},
+pages={1-11},
+abstract={Adaptive scientific computations require that periodic repartitioning (load balancing) occur dynamically to maintain load balance. Hypergraph partitioning is a successful model for minimizing communication volume in scientific computations, and partitioning software for the static case is widely available. In this paper, we present a new hypergraph model for the dynamic case, where we minimize the sum of communication in the application plus the migration cost to move data, thereby reducing total execution time. The new model can be solved using hypergraph partitioning with faced vertices. We describe an implementation of a parallel multilevel repartitioning algorithm within the Zoltan load-balancing toolkit, which to our knowledge is the first code for dynamic load balancing based on hypergraph partitioning. Finally, we present experimental results that demonstrate the effectiveness of our approach on a Linux cluster with up to 64 processors. Our new algorithm compares favorably to the widely used ParMETIS partitioning software in terms of quality, and would have reduced total execution time in most of our test cases.},
+keywords={graph theory;natural sciences computing;resource allocation;ParMETIS partitioning software;Zoltan load-balancing toolkit;adaptive scientific computation;hypergraph model;Biomedical computing;Biomedical informatics;Clustering algorithms;Computational modeling;Contracts;Costs;Laboratories;Load management;Partitioning algorithms;US Department of Energy},
+doi={10.1109/IPDPS.2007.370258},
+ISSN={1530-2075},
+month={March},}
+
+
+
+@article{CAMPOS20001213,
+title = "Rate of change load balancing in distributed and parallel systems",
+journal = "Parallel Computing",
+volume = "26",
+number = "9",
+pages = "1213 - 1230",
+year = "2000",
+issn = "0167-8191",
+doi = "https://doi.org/10.1016/S0167-8191(00)00036-3",
+url = "http://www.sciencedirect.com/science/article/pii/S0167819100000363",
+author = "Luis Miguel Campos and Isaac D Scherson",
+keywords = "Rate of change load balancing, Dynamic load balancing, Distributed systems, Parallel systems, Simulation, Dynamic work load, Resource management",
+abstract = "Dynamic load balancing (DLB) is an important system function destined to distribute workload among available processors to improve throughput and/or execution times of parallel computer programs either uniform or non-uniform (jobs whose workload varies at run-time in unpredictable ways). Non-uniform computation and communication requirements may bog down a parallel computer if no efficient load distribution is effected. A novel distributed algorithm for load balancing is proposed and is based on local rate of change (RoC) observations rather than on global absolute load numbers. It is a totally distributed algorithm and requires no centralized trigger and/or decision makers. The strategy is discussed and analyzed by means of experimental simulation."
+}
+
+
+
+@article{GROSU20051022,
+title = "Noncooperative load balancing in distributed systems",
+journal = "Journal of Parallel and Distributed Computing",
+volume = "65",
+number = "9",
+pages = "1022 - 1034",
+year = "2005",
+issn = "0743-7315",
+doi = "https://doi.org/10.1016/j.jpdc.2005.05.001",
+url = "http://www.sciencedirect.com/science/article/pii/S0743731505001152",
+author = "Daniel Grosu and Anthony T. Chronopoulos",
+keywords = "Distributed systems, Static load balancing, Game theory, Nash equilibrium, Noncooperative games, Performance evaluation",
+abstract = "In this paper, we present a game theoretic framework for obtaining a user-optimal load balancing scheme in heterogeneous distributed systems. We formulate the static load balancing problem in heterogeneous distributed systems as a noncooperative game among users. For the proposed noncooperative load balancing game, we present the structure of the Nash equilibrium. Based on this structure we derive a new distributed load balancing algorithm. Finally, the performance of our noncooperative load balancing scheme is compared with that of other existing schemes. The main advantages of our load balancing scheme are the distributed structure, low complexity and optimality of allocation for each user."
+}
+
+
+
+@article {CPE:CPE1631,
+author = {Augonnet, Cedric and Thibault, Samuel and Namyst, Raymond and Wacrenier, Pierre-André},
+title = {StarPU: a unified platform for task scheduling on heterogeneous multicore architectures},
+journal = {Concurrency and Computation: Practice and Experience},
+volume = {23},
+number = {2},
+publisher = {John Wiley & Sons, Ltd.},
+issn = {1532-0634},
+url = {http://dx.doi.org/10.1002/cpe.1631},
+doi = {10.1002/cpe.1631},
+pages = {187--198},
+keywords = {GPU, multicore, accelerator, scheduling, runtime system},
+year = {2011},
+abstract = {In the field of HPC, the current hardware trend is to design multiprocessor architectures featuring heterogeneous technologies such as specialized coprocessors (e.g. Cell/BE) or data-parallel accelerators (e.g. GPUs). Approaching the theoretical performance of these architectures is a complex issue. Indeed, substantial efforts have already been devoted to efficiently offload parts of the computations. However, designing an execution model that unifies all computing units and associated embedded memory remains a main challenge. We therefore designed StarPU, an original runtime system providing a high-level, unified execution model tightly coupled with an expressive data management library. The main goal of StarPU is to provide numerical kernel designers with a convenient way to generate parallel tasks over heterogeneous hardware on the one hand, and easily develop and tune powerful scheduling algorithms on the other hand. We have developed several strategies that can be selected seamlessly at run-time, and we have analyzed their efficiency on several algorithms running simultaneously over multiple cores and a GPU. In addition to substantial improvements regarding execution times, we have obtained consistent superlinear parallelism by actually exploiting the heterogeneous nature of the machine. We eventually show that our dynamic approach competes with the highly optimized MAGMA library and overcomes the limitations of the corresponding static scheduling in a portable way.},
+}
+
+
+
+
+@article{HORTON1993209,
+title = "A multi-level diffusion method for dynamic load balancing",
+journal = "Parallel Computing",
+volume = "19",
+number = "2",
+pages = "209 - 218",
+year = "1993",
+issn = "0167-8191",
+doi = "https://doi.org/10.1016/0167-8191(93)90050-U",
+url = "http://www.sciencedirect.com/science/article/pii/016781919390050U",
+author = "G Horton",
+keywords = "Dynamic load balancing, parallel computing, distributed-memory multiprocessor, multi-level algorithm",
+abstract = "We consider the problem of dynamic load balancing for multiprocessors, for which a typical application is a parallel finite element solution method using non-structured grids and adaptive grid refinement. This type of application requires communication between the subproblems which arises from the interdependencies in the data. A load balancing algorithm should ideally not make any assumptions about the physical topology of the parallel machine. Further requirements are that the procedure should be fast and accurate. An new multi-level algorithm is presented for solving the dynamic load balancing problem which has these properties and whose parallel complexity is logarithmic in the number of processors used in the computation."
+}
+
+
+
+
+
+
+
+
+@article{doi:10.1142/S0219198902000574,
+author = {Altman, Eitan and Kameda, Hisao and Hosokawa, Yoshihisa},
+title = {Nash equilibria in load balancing in distributed computer systems},
+journal = {International Game Theory Review},
+volume = {04},
+number = {02},
+pages = {91-100},
+year = {2002},
+doi = {10.1142/S0219198902000574},
+URL = {http://www.worldscientific.com/doi/abs/10.1142/S0219198902000574},
+eprint = {http://www.worldscientific.com/doi/pdf/10.1142/S0219198902000574},
+abstract = "The use of game theoretical techniques has been quite successful in describing routing in networks, both in road traffic applications as well as in telecommunication networks applications. We study in this paper a third area of applications of such games, which is load balancing in distributed computer systems. One of the most important questions that arise in all applications of routing games is the existence and uniqueness of equilibrium. Whereas the existence of Nash equilibrium is known for general models of networks under weak assumptions, uniqueness results are only known for very special applications, i.e., either for very special cost functions or for very special topologies. We establish in this paper the uniqueness of an equilibrium for routing games with topologies that model well distributed computer systems, under quite general assumptions on the costs."
+}
+
+
+
+
+@article{PINAR2004974,
+title = "Fast optimal load balancing algorithms for 1D partitioning",
+journal = "Journal of Parallel and Distributed Computing",
+volume = "64",
+number = "8",
+pages = "974 - 996",
+year = "2004",
+issn = "0743-7315",
+doi = "https://doi.org/10.1016/j.jpdc.2004.05.003",
+url = "http://www.sciencedirect.com/science/article/pii/S0743731504000851",
+author = "Ali Pinar and Cevdet Aykanat",
+keywords = "One-dimensional partitioning, Optimal load balancing, Chains-on-chains partitioning, Dynamic programming, Iterative refinement, Parametric search, Parallel sparse matrix vector multiplication, Image-space parallel volume rendering",
+abstract = "The one-dimensional decomposition of nonuniform workload arrays with optimal load balancing is investigated. The problem has been studied in the literature as the ``chains-on-chains partitioning'' problem. Despite the rich literature on exact algorithms, heuristics are still used in parallel computing community with the hope of good decompositions and the myth of exact algorithms being hard to implement and not runtime efficient. We show that exact algorithms yield significant improvements in load balance over heuristics with negligible overhead. Detailed pseudocodes of the proposed algorithms are provided for reproducibility. We start with a literature review and propose improvements and efficient implementation tips for these algorithms. We also introduce novel algorithms that are asymptotically and runtime efficient. Our experiments on sparse matrix and direct volume rendering datasets verify that balance can be significantly improved by using exact algorithms. The proposed exact algorithms are 100 times faster than a single sparse-matrix vector multiplication for 64-way decompositions on the average. We conclude that exact algorithms with proposed efficient implementations can effectively replace heuristics."
+}
+
+
+
+@inproceedings{Deng:2010:HDB:1889863.1889910,
+author = {Deng, Yunhua and Lau, Rynson W. H.},
+title = {Heat Diffusion Based Dynamic Load Balancing for Distributed Virtual Environments},
+booktitle = {Proceedings of the 17th ACM Symposium on Virtual Reality Software and Technology},
+series = {VRST '10},
+year = {2010},
+isbn = {978-1-4503-0441-2},
+location = {Hong Kong},
+pages = {203--210},
+numpages = {8},
+url = {http://doi.acm.org/10.1145/1889863.1889910},
+doi = {10.1145/1889863.1889910},
+acmid = {1889910},
+publisher = {ACM},
+address = {New York, NY, USA},
+keywords = {distributed virtual environments, dynamic load balancing, dynamic repartitioning, heat diffusion},
+abstract = "Distributed virtual environments (DVEs) are becoming very popular in recent years, due to their application in online gaming and social networking. One of the main research problems in DVEs is on how to balance the workload when a lot of concurrent users are accessing it. There are a number of load balancing methods proposed to address this problem. However, they either spend too much time on optimizing the partitioning process and become too slow or emphasize on efficiency and the repartitioning process becomes too ineffective. In this paper, we propose a new dynamic load balancing approach for DVEs based on the heat diffusion approach which has been studied in other areas and proved to be very effective and efficient for dynamic load balancing. We have two main contributions. First, we propose an efficient cell selection scheme to identify and select appropriate cells for load migration. Second, we propose two heat diffusion based load balancing algorithms, local and global diffusion. Our results show that the new algorithms are both efficient and effective compared with some existing methods, and the global diffusion method performs the best."
+}
+
+
+
+
+
+
+
+@inproceedings{Cederman:2008:DLB:1413957.1413967,
+author = {Cederman, Daniel and Tsigas, Philippas},
+title = {On Dynamic Load Balancing on Graphics Processors},
+booktitle = {Proceedings of the 23rd ACM SIGGRAPH/EUROGRAPHICS Symposium on Graphics Hardware},
+series = {GH '08},
+year = {2008},
+isbn = {978-3-905674-09-5},
+location = {Sarajevo, Bosnia and Herzegovina},
+pages = {57--64},
+numpages = {8},
+url = {http://dl.acm.org/citation.cfm?id=1413957.1413967},
+acmid = {1413967},
+publisher = {Eurographics Association},
+address = {Aire-la-Ville, Switzerland, Switzerland},
+abstract = "To get maximum performance on the many-core graphics processors it is important to have an even balance of the workload so that all processing units contribute equally to the task at hand. This can be hard to achieve when the cost of a task is not known beforehand and when new sub-tasks are created dynamically during execution. With the recent advent of scatter operations and atomic hardware primitives it is now possible to bring some of the more elaborate dynamic load balancing schemes from the conventional SMP systems domain to the graphics processor domain.  We have compared four different dynamic load balancing methods to see which one is most suited to the highly parallel world of graphics processors. Three of these methods were lock-free and one was lock-based. We evaluated them on the task of creating an octree partitioning of a set of particles. The experiments showed that synchronization can be very expensive and that new methods that take more advantage of the graphics processors features and capabilities might be required. They also showed that lock-free methods achieves better performance than blocking and that they can be made to scale with increased numbers of processing units."
+}
+
+
+
+@INPROCEEDINGS{5599103,
+author={G. Zheng and E. Meneses and A. Bhatele and L. V. Kale},
+booktitle={2010 39th International Conference on Parallel Processing Workshops},
+title={Hierarchical Load Balancing for Charm++ Applications on Large Supercomputers},
+year={2010},
+volume={},
+number={},
+pages={436-444},
+abstract={Large parallel machines with hundreds of thousands of processors are being built. Recent studies have shown that ensuring good load balance is critical for scaling certain classes of parallel applications on even thousands of processors. Centralized load balancing algorithms suffer from scalability problems, especially on machines with relatively small amount of memory. Fully distributed load balancing algorithms, on the other hand, tend to yield poor load balance on very large machines. In this paper, we present an automatic dynamic hierarchical load balancing method that overcomes the scalability challenges of centralized schemes and poor solutions of traditional distributed schemes. This is done by creating multiple levels of aggressive load balancing domains which form a tree. This hierarchical method is demonstrated within a measurement-based load balancing framework in Charm++. We present techniques to deal with scalability challenges of load balancing at very large scale. We show performance data of the hierarchical load balancing method on up to 16,384 cores of Ranger (at TACC) for a synthetic benchmark. We also demonstrate the successful deployment of the method in a scientific application, NAMD with results on the Blue Gene/P machine at ANL.},
+keywords={mainframes;parallel machines;parallel processing;resource allocation;Blue Gene-P machine;Charm++ applications;automatic dynamic hierarchical load balancing method;centralized load balancing algorithms;measurement-based load balancing framework;parallel machines;supercomputers;Databases;Lead;Load management;Load modeling;Memory management;Program processors;Scalability;hierarchical algorithms;load balancing;scalability},
+doi={10.1109/ICPPW.2010.65},
+ISSN={0190-3918},
+month={Sept},}
+
+
+
+@inproceedings{Lieber:2016:PDL:2966884.2966887,
+author = {Lieber, Matthias and G{oe}ssner, Kerstin and Nagel, Wolfgang E.},
+title = {The Potential of Diffusive Load Balancing at Large Scale},
+booktitle = {Proceedings of the 23rd European MPI Users' Group Meeting},
+series = {EuroMPI 2016},
+year = {2016},
+isbn = {978-1-4503-4234-6},
+location = {Edinburgh, United Kingdom},
+pages = {154--157},
+numpages = {4},
+url = {http://doi.acm.org/10.1145/2966884.2966887},
+doi = {10.1145/2966884.2966887},
+acmid = {2966887},
+publisher = {ACM},
+address = {New York, NY, USA},
+keywords = {Dynamic Load Balancing, HPC, Workload Diffusion},
+abstract = "Dynamic load balancing with diffusive methods is known to provide minimal load transfer and requires communication between neighbor nodes only. These are very attractive properties for highly parallel systems. We compare diffusive methods with state-of-the-art geometrical and graph-based partitioning methods on thousands of nodes. When load balancing overheads, i.e. repartitioning computation time and migration, have to be minimized, diffusive methods provide substantial benefits."
+}
+
+
+@INPROCEEDINGS{7551381,
+author={C. Torng and M. Wang and C. Batten},
+booktitle={2016 ACM/IEEE 43rd Annual International Symposium on Computer Architecture (ISCA)},
+title={Asymmetry-Aware Work-Stealing Runtimes},
+year={2016},
+volume={},
+number={},
+pages={40-52},
+abstract={Amdahl's law provides architects a compelling reason to introduce system asymmetry to optimize for both serial and parallel regions of execution. Asymmetry in a multicore processor can arise statically (e.g., from core microarchitecture) or dynamically (e.g., applying dynamic voltage/frequency scaling). Work stealing is an increasingly popular approach to task distribution that elegantly balances task-based parallelism across multiple worker threads. In this paper, we propose asymmetry-aware work-stealing (AAWS) runtimes, which are carefully designed to exploit both the static and dynamic asymmetry in modern systems. AAWS runtimes use three key hardware/software techniques: work-pacing, work-sprinting, and work-mugging. Work-pacing and work-sprinting are novel techniques that combine a marginal-utility-based approach with integrated voltage regulators to improve performance and energy efficiency in high-and low-parallel regions. Work-mugging is a previously proposed technique that enables a waiting big core to preemptively migrate work from a busy little core. We propose a simple implementation of work-mugging based on lightweight user-level interrupts. We use a vertically integrated research methodology spanning software, architecture, and VLSI to make the case that holistically combining static asymmetry, dynamic asymmetry, and work-stealing runtimes can improve both performance and energy efficiency in future multicore systems.},
+keywords={VLSI;multiprocessing systems;power aware computing;voltage regulators;AAWS runtimes;Amdahl's law;VLSI;asymmetry-aware work-stealing runtimes;dynamic asymmetry;energy efficiency;integrated voltage regulators;lightweight user-level interrupts;marginal-utility-based approach;multicore processor;multicore systems;static asymmetry;task distribution;task-based parallelism;work-mugging;work-pacing;work-sprinting;Multicore processing;Runtime;Software;Throughput;Very large scale integration;Voltage control},
+doi={10.1109/ISCA.2016.14},
+ISSN={1063-6897},
+month={June},}
+
+
+
+
+@Article{Posner2018,
+author="Posner, Jonas
+and Fohry, Claudia",
+title="Hybrid work stealing of locality-flexible and cancelable tasks for the APGAS library",
+journal="The Journal of Supercomputing",
+year="2018",
+month="Jan",
+day="08",
+abstract="Since large parallel machines are typically clusters of multicore nodes, parallel programs should be able to deal with both shared memory and distributed memory. This paper proposes a hybrid work stealing scheme, which combines the lifeline-based variant of distributed task pools with the node-internal load balancing of Java's Fork/Join framework. We implemented our scheme by extending the APGAS library for Java, which is a branch of the X10 project. APGAS programmers can now spawn locality-flexible tasks with a new asyncAny construct. These tasks are transparently mapped to any resource in the overall system, so that the load is balanced over both nodes and cores. Unprocessed asyncAny-tasks can also be cancelled. In performance measurements with up to 144 workers on up to 12 nodes, we observed near linear speedups for four benchmarks and a low overhead for cancellation-related bookkeeping.",
+issn="1573-0484",
+doi="10.1007/s11227-018-2234-8",
+url="https://doi.org/10.1007/s11227-018-2234-8"
+}
+
+
+
+@inproceedings{CCGrid2018,
+title = "Handling Transient and Persistent Imbalance Together in Distributed and Shared Memory",
+author = { Seonmyeong Bak and Harshitha Menon and Sam White and Matthias Diener and Laxmikant Kale },
+booktitle={2018 IEEE/ACM International Symposium on Cluster, Cloud and Grid Computing (CCGrid)},
+year = "2018",
+abstract = "The recent trend of rapidly increasing numbers of cores per chip has resulted in vast amounts of on-node parallelism. These high core counts result in hardware variability that introduces imbalance. Applications are also becoming more complex, resulting in dynamic load imbalance. Load imbalance of any kind can result in loss of performance and decrease in system utilization. We address the challenge of handling both transient and persistent load imbalances while maintaining locality and incurring low overhead. In this paper, we propose an integrated runtime system that combines the Charm++ distributed programming model with concurrent tasks to mitigate load imbalances within and across shared memory address spaces. It utilizes an infrequent periodic assignment of work to cores based on load measurement, in combination with user created tasks to handle load imbalance. We integrate OpenMP with Charm++ to enable creation of potential tasks via OpenMP's parallel loop construct. This is not specific to Charm++ and is also available to MPI applications through the Adaptive MPI implementation. We demonstrate the benefits of this integrated runtime system on three different applications. We show improvement of Lassen around 29.6\% on Cori and 46.5\% on Theta. We also demonstrate the benefits on a Charm++application, ChaNGa, by 25.7\% on Theta, as well as an MPI proxy application, Kripke, using Adaptive MPI."
+}
+
+
+
+
+@INPROCEEDINGS{8025281,
+author={J. Maglalang and S. Krishnamoorthy and K. Agrawal},
+booktitle={2017 46th International Conference on Parallel Processing (ICPP)},
+title={Locality-Aware Dynamic Task Graph Scheduling},
+year={2017},
+volume={},
+number={},
+pages={70-80},
+abstract={Dynamic task graph schedulers automatically balance work across processor cores by scheduling tasks among available threads while preserving dependences. In this paper, we design NABBITC, a provably efficient dynamic task graph scheduler that accounts for data locality on NUMA systems. NABBITC allows users to assign a color to each task representing the location (e.g., a processor core) that has the most efficient access to data needed during that node's execution. NABBITC then automatically adjusts the scheduling so as to preferentially execute each node at the location that matches its color-leading to better locality because the node is likely to make local rather than remote accesses. At the same time, NABBITC tries to optimize load balance and not add too much overhead compared to the vanilla NABBIT scheduler that does not consider locality. We provide a theoretical analysis that shows that NABBITC does not asymptotically impact the scalability of NABBIT.We evaluated the performance of NABBITC on a suite of benchmarks, including both memory and compute intensive applications. Our experiments indicate that adding locality awareness has a considerable performance advantage compared to the vanilla NABBIT scheduler. Furthermore, we compared NABBITC to both OpenMP tasks and OpenMP loops. For regular applications, OpenMP loops can achieve perfect locality and perfect load balance statically. For these benchmarks, NABBITC has a small performance penalty compared to OpenMP due to its dynamic scheduling strategy. Similarly, for compute intensive applications with course-grained tasks, OpenMP task's centralized scheduler provides the best performance. However, we find that NABBITC provides a good trade-off between data locality and load balance; on memory intensive jobs, it consistently outperforms OpenMP tasks while for irregular jobs where load balancing is important, it outperforms OpenMP loops. Therefore, NABBITC combines the benefits of locality-aware- scheduling for regular, memory intensive, applications (the forte of static schedulers such as those in OpenMP) and dynamically adapting to load imbalance in irregular applications (the forte of dynamic schedulers such as Cilk Plus, TBB, and Nabbit).},
+keywords={graph theory;message passing;multi-threading;multiprocessing systems;program control structures;resource allocation;scheduling;storage management;Cilk Plus;NABBIT scalability;NABBITC;NUMA system;OpenMP loops;OpenMP tasks;TBB;color matching;compute intensive application;data access;data locality;dynamic scheduling strategy;load balance optimization;locality awareness;locality-aware dynamic task graph scheduling;locality-aware scheduling;memory intensive application;node execution;processor cores;remote access;static schedulers;threads;vanilla NABBIT scheduler;work balancing;Dynamic scheduling;Image color analysis;Instruction sets;Libraries;Processor scheduling;Runtime},
+doi={10.1109/ICPP.2017.16},
+ISSN={},
+month={Aug},}
+
+
+
+@inproceedings{Menon:2013:DDL:2503210.2503284,
+author = {Menon, Harshitha and Kal{\'e}, Laxmikant},
+title = {A Distributed Dynamic Load Balancer for Iterative Applications},
+booktitle = {Proceedings of the International Conference on High Performance Computing, Networking, Storage and Analysis},
+series = {SC '13},
+year = {2013},
+isbn = {978-1-4503-2378-9},
+location = {Denver, Colorado},
+pages = {15:1--15:11},
+articleno = {15},
+numpages = {11},
+url = {http://doi.acm.org/10.1145/2503210.2503284},
+doi = {10.1145/2503210.2503284},
+acmid = {2503284},
+publisher = {ACM},
+address = {New York, NY, USA},
+keywords = {distributed load balancer, epidemic algorithm, load balancing},
+abstract = "For many applications, computation load varies over time. Such applications require dynamic load balancing to improve performance. Centralized load balancing schemes, which perform the load balancing decisions at a central location, are not scalable. In contrast, fully distributed strategies are scalable but typically do not produce a balanced work distribution as they tend to consider only local information.  This paper describes a fully distributed algorithm for load balancing that uses partial information about the global state of the system to perform load balancing. This algorithm, referred to as GrapevineLB, consists of two stages: global information propagation using a lightweight algorithm inspired by epidemic [21] algorithms, and work unit transfer using a randomized algorithm. We provide analysis of the algorithm along with detailed simulation and performance comparison with other load balancing strategies. We demonstrate the effectiveness of GrapevineLB for adaptive mesh refinement and molecular dynamics on up to 131,072 cores of BlueGene/Q."
+}
+
+
+
+
+@INPROCEEDINGS{7307597,
+author={A. Danalis and H. Jagode and G. Bosilca and J. Dongarra},
+booktitle={2015 IEEE International Conference on Cluster Computing},
+title={PaRSEC in Practice: Optimizing a Legacy Chemistry Application through Distributed Task-Based Execution},
+year={2015},
+volume={},
+number={},
+pages={304-313},
+abstract={Task-based execution has been growing in popularity as a means to deliver a good balance between performance and portability in the post-petascale era. The Parallel Runtime Scheduling and Execution Control (PARSEC) framework is a task-based runtime system that we designed to achieve high performance computing at scale. PARSEC offers a programming paradigm that is different than what has been traditionally used to develop large scale parallel scientific applications. In this paper, we discuss the use of PARSEC to convert a part of the Coupled Cluster (CC) component of the Quantum Chemistry package NWCHEM into a task-based form. We explain how we organized the computation of the CC methods in individual tasks with explicitly defined data dependencies between them and re-integrated the modified code into NWCHEM. We present a thorough performance evaluation and demonstrate that the modified code outperforms the original by more than a factor of two. We also compare the performance of different variants of the modified code and explain the different behaviors that lead to the differences in performance.},
+keywords={chemistry computing;parallel processing;quantum chemistry;scheduling;software maintenance;software packages;CC component;NWCHEM;PARSEC framework;coupled cluster component;distributed task-based execution;legacy chemistry application;parallel runtime scheduling and execution control;quantum chemistry package;Algorithms;Arrays;Computational modeling;Engines;Parallel processing;Programming;Runtime;DAG;PTG;PaRSEC;Tasks},
+doi={10.1109/CLUSTER.2015.50},
+ISSN={1552-5244},
+month={Sept},}
+
+
+@article{doi:10.1142/S0129054197000215,
+author = {Heirich, A.},
+title = {A Scalable Diffusion Algorithm for Dynamic Mapping and Load Balancing on Networks of Arbitrary Topology},
+journal = {International Journal of Foundations of Computer Science},
+volume = {08},
+number = {03},
+pages = {329-346},
+year = {1997},
+doi = {10.1142/S0129054197000215},
+
+URL = {http://www.worldscientific.com/doi/abs/10.1142/S0129054197000215},
+eprint = {http://www.worldscientific.com/doi/pdf/10.1142/S0129054197000215},
+abstract = "The problems of mapping and load balancing applications on arbitrary networks are considered.
+A novel diffusion algorithm is presented to solve the mapping problem.
+It complements the well known diffusive algorithms for load balancing which have enjoyed success on massivel parallel computers (MPPs).
+Mapping is more difficult on interconnection networks than on MPPs because of the variations that occur in network topology.
+Popular mapping algorithms for MPPs which depend on recursive topologies are not applicable to irregular networks.
+The most celebrated of these MPP algorithms use information from the Laplacian matrix of a graph of communicating processes.
+The diffusion algorithm presented in this paper is also derived from this Laplacian matrix.
+The diffusion algorithm works on arbitrary network topologies and is dramatically faster than the celebrated MPP algorithms.
+It is delay and fault tolerant.
+Time to convergence depends on initial conditions and is insensitive to problem scale.
+This excellent scalability, among other features, makes the diffusion algorithm a viable candidate for dynamically mapping and load balancing not only existing MPP systems but also large distributed systems like the Internet, small cluster computers, and networks of workstations."
+}
+
+
+
+
+@article{CYBENKO1989279,
+title = "Dynamic load balancing for distributed memory multiprocessors",
+journal = "Journal of Parallel and Distributed Computing",
+volume = "7",
+number = "2",
+pages = "279 - 301",
+year = "1989",
+issn = "0743-7315",
+doi = "https://doi.org/10.1016/0743-7315(89)90021-X",
+url = "http://www.sciencedirect.com/science/article/pii/074373158990021X",
+author = "George Cybenko",
+abstract = "In this paper we study diffusion schemes for dynamic load balancing on message passing multiprocessor networks. One of the main results concerns conditions under which these dynamic schemes converge and their rates of convergence for arbitrary topologies. These results use the eigenstructure of the iteration matrices that arise in dynamic load balancing. We completely analyze the hypercube network by explicitly computing the eigenstructure of its node adjacency matrix. Using a realistic model of inter-processor communications, we show that a diffusion approach to load balancing on a hypercube multiprocessor is inferior to another approach which we call the dimension exchange method. For a d-dimensional hypercube, we compute the rate of convergence to a uniform work distribution and show that after d + 1 iterations of a diffusion type approach, we can guarantee that the work distribution is approximately within e - 2 of the uniform distribution independent of the hypercube dimension d. Both static and dynamic random models of work distribution are studied."
+}
+
+
+
+
+@article{10.2307/2584287,
+ ISSN = {01605682, 14769360},
+ URL = {http://www.jstor.org/stable/2584287},
+ abstract = {Dynamic load balancing in multicomputers can improve the utilization of processors and the efficiency of parallel computations through migrating the workload across processors at runtime. We present a survey and critique of dynamic load balancing strategies that are iterative: that is, workload migration is carried out through transferring processes across nearest neighbour processors. Iterative strategies have become prominent in recent years because of the increaasing popularity of point-to-point interconnection networks for multicomputers.},
+ author = {Cheng-Zhong Xu and Francis C. M. Lau},
+ journal = {The Journal of the Operational Research Society},
+ number = {7},
+ pages = {786-796},
+ publisher = {Palgrave Macmillan Journals},
+ title = {Iterative Dynamic Load Balancing in Multicomputers},
+ volume = {45},
+ year = {1994}
+}
+
+
+
+
+@article{ROTARU2004481,
+title = "Dynamic load balancing by diffusion in heterogeneous systems",
+journal = "Journal of Parallel and Distributed Computing",
+volume = "64",
+number = "4",
+pages = "481 - 497",
+year = "2004",
+issn = "0743-7315",
+doi = "https://doi.org/10.1016/j.jpdc.2004.02.001",
+url = "http://www.sciencedirect.com/science/article/pii/S0743731504000371",
+author = "Tiberiu Rotaru and Hans-Heinrich Nageli",
+keywords = "Heterogeneous environments, Dynamic load balancing, Generalized diffusion, Balancing flow, Adaptive computations",
+abstract = "The distributed environments constitute a major option for the future development of high-performance computing. In order to be able to efficiently execute parallel applications on such systems, one should ensure a fair utilization of the available resources. Here, we address a number of aspects regarding the generalization of the diffusion algorithms for the case when the processors have different relative speeds and the communication parameters have different values. Although some work has been done in this direction, we propose complementary results and we investigate other variants than those commonly used. In a first step, we discuss general aspects of the generalized diffusion. Bounds are formulated for the convergence factor and an explicit expression is given for the migration flow generated by such algorithms. It is shown that this flow has an important property, that is a scaled projection of all other balancing flows. In the second part, a variant of generalized diffusion is investigated. Complexity results are formulated and it is shown that this algorithm theoretically converges faster than the hydrodynamic algorithm. Comparative tests between different variants of generalized diffusion algorithms are performed."
+}
+
+
+@techreport{ParabolicLB,
+doi = "10.13140/RG.2.2.17432.08966",
+title = "A Parabolic Load Balancing Method",
+author = { Alan Heirich and Stephen Taylor },
+publisher = "California Institute of Technology",
+year = "1994",
+volume = "Caltech-CS-TR-94-13",
+abstract = "This paper presents a diffusive load balancing methods for scalable multicomputers.
+In contrast to other schemes which are provably correct the method scales to large numbers of processors with no increase in run  time.
+In contrast to other schemes which are scalable the method is provably correct and the paper analyses the rate of convergence.
+To control aggregate cpu idle time it can be useful to balance the load to specifiable accuracy.
+The method achieves arbitrary accuracy by proper consideraton of numerical error and stability.
+This paper presents the method, proves correctness, convergence and scalability, and simulates applications to generic problems in computational fluid dynamics (CFD).
+The applications reveal some useful properties.
+The method can preserve adjacency relationships among elements of an adapting computational domain.
+This make it useful for partitioning unstructured computational grids in concurrent computations.
+The method can execute asynchronousely to balance a subportion of a domain without affecting the rest of the domain.
+Theory and experiment show the method is efficient on the scalable multicomputers of the present and coming years.
+The number of floating point operations required per processor to reduce a point disturbance by 90\% is 168 on a system of 512 computers and 105 on a system of 1,000,000 computers.
+On a typical contemporary multicomputer [19] this requires 82.5 $\mu$$s$ of wall-clock time."
+}
+
+
+@article{Boillat:1990:LBP:95324.95326,
+ author = {Boillat, J. E.},
+ title = {Load Balancing and Poisson Equation in a Graph},
+ journal = {Concurrency: Pract. Exper.},
+ issue_date = {Dec. 1990},
+ volume = {2},
+ number = {4},
+ month = nov,
+ year = {1990},
+ issn = {1040-3108},
+ pages = {289--313},
+ numpages = {25},
+ url = {http://dx.doi.org/10.1002/cpe.4330020403},
+ doi = {10.1002/cpe.4330020403},
+ acmid = {95326},
+ publisher = {John Wiley and Sons Ltd.},
+ address = {Chichester, UK},
+abstract = "We present a fully distributed dynamic load balancing algorithm for parallel MIMD
+architectures. The algorithm can be described as a system of identical parallel processes,
+each running on a processor of an arbitrary interconnected network of processors. We show
+that the algorithm can be interpreted as a Poisson (heath) equation in a graph. This equation
+is analysed using Markov chain techniques and is proved to converge in polynomial time
+resulting in a global load balance. We also discuss some important parallel architectures
+and interconnection schemes such as linear processor arrays, tori, hypercubes, etc. Finally
+we present two applications where the algorithm has been successfully embedded (process
+mapping and molecular dynamic simulation)."
+} 
+
+
+@article{javataskpool,
+title = "A Java Task Pool Framework providing Fault-Tolerant Global Load Balancing",
+author = { Jonas Posner and Claudia Fohry },
+abstract = "Fault tolerance is gaining importance in parallel computing, especially on large clusters. Traditional approaches handle the issue on system-level. Application-level approaches are becoming increasingly popular, since they may be more efficient. This paper presents a fault-tolerant work stealing technique on application level, and describes its implementation in a generic reusable task pool framework for Java. When using this framework, programmers can focus on writing sequential code to solve their actual problem. The framework is written in Java and utilizes the APGAS library for parallel programming. It implements a comparatively simple algorithm that relies on a resilient data structure for storing backups of local pools and other information. Our implementation uses Hazelcast's IMap for this purpose, which is an automatically distributed and fault-tolerant key-value store. The number of backup copies is configurable and determines how many simultaneous failures can be tolerated. Our algorithm is shown to be correct in the sense that failures are either tolerated and the computed result is the same as in non-failure case, or the program aborts with an error message. Experiments were conducted with the UTS, NQueens and BC benchmarks on up to 144 workers. First, we compared the performance of our framework with that of a non-fault-tolerant variant during failure-free operation. Depending on the parameter settings, the overhead was at most 46.06\%. The particular value tended to increase with the number of steals. Second, we compared our framework's performance with that of a related, but less flexible fault-tolerant X10 framework. Here, we did not observe a clear winner. Finally, we measured the overheads for restoring a failed worker and for raising the number of backup copies from one to six, and found both to be negligible.",
+year = "2018",
+journal = "International Journal of Networking and Computing",
+volume = "8",
+}
+
+
+@inproceedings{Liu:2017,
+title = "Dynamic Load Balancing using Hilbert Space-filling Curves for Parallel Reser- voir Simulations",
+author = { Hui Liu and Kun Wang and Bo Yang and Min Yang and Ruijian He and Lihua Shen and He Zhong and Zhangxin Chen },
+abstract = "New reservoir simulators designed for parallel computers enable us to overcome performance limitations of personal computers and to simulate large-scale reservoir models. With development of parallel reservoir simulators, more complex physics and detailed models can be studied. The key to design efficient parallel reservoir simulators is not to improve the performance of individual CPUs drastically but to utilize the aggregation of computing power of all requested nodes through high speed networks. An ideal scenario is that when the number of MPI (Message Passing Interface) processes is doubled, the running time of parallel reservoir simulators is reduced by half. The goal of load balancing (grid partitioning) is to minimize overall computations and communications, and to make sure that all processors have a similar workload. Geometric methods divide a grid by using a location of a cell while topological methods work with connectivity of cells, which is generally described as a graph. This paper introduces a Hilbert space-filling curve method. A space-filling curve is a continuous curve and defines a map between a one-dimensional space and a multi-dimensional space. A Hilbert space-filling curve is one special space-filling curve discovered by Hilbert and has many useful characteristics, such as good locality, which means that two objects that are close to each other in a multi-dimensional space are also close to each other in a one dimensional space. This property can model communications in grid-based parallel applications. The idea of the Hilbert space-filling curve method is to map a computational domain into a one-dimensional space, partition the one-dimensional space to certain intervals, and assign all cells in a same interval to a MPI process. To implement a load balancing method, a mapping kernel is required to convert high-dimensional coordinates to a scalar value and an efficient one-dimensional partitioning module that divides a one-dimensional space and makes sure that all intervals have a similar workload. The Hilbert space-filling curve method is compared with ParMETIS, a famous graph partitioning package. The results show that our Hilbert space-filling curve method has good partition quality. It has been applied to grids with billions of cells, and linear scalability has been obtained on IBM Blue Gene/Q.",
+year = "2017",
+booktitle = "Proc. SPE Reservoir Simulation Conference",
+series = {SPE'17},
+year = {2017},
+location = {Montgomery, TX},
+articleno = {182613},
+publisher = {Society for Petroleum Engineering},
+}
+
+
+
+
+@article{SEVERIUKHINA2017139,
+title = "Adaptive load balancing of distributed multi-agent simulations on heterogeneous computational infrastructures",
+journal = "Procedia Computer Science",
+volume = "119",
+pages = "139 - 146",
+year = "2017",
+note = "6th International Young Scientist Conference on Computational Science, YSC 2017, 01-03 November 2017, Kotka, Finland",
+issn = "1877-0509",
+doi = "https://doi.org/10.1016/j.procs.2017.11.170",
+url = "http://www.sciencedirect.com/science/article/pii/S1877050917323803",
+author = "Oksana Severiukhina and Pavel A. Smirnov and Klavdiya Bochenina and Denis Nasonov and Nikolay Butakov",
+keywords = "agent-based modeling, distributed computing, load-balancing",
+abstract = "Simulation of the agent-based model has several problems related to scalability, the accuracy of reproduction of motion. The increase in the number of agents leads to additional computations and hence the program run time also increases. This problem can be solved using distributed simulation and distributed computational environments such as clusters and supercomputers. The model objects must be divided into different processes and calculations to be able to be executed in parallel. This paper presents the research on an algorithm to balancing of computational load. The algorithm is based on a well-known genetic algorithm and performs optimization of matching between the model structure formed by multiple interconnected executable blocks of a distributed programming implementation of the model and network structure of the computational environment. Efficient placement of the model graphs nodes to heterogeneous computational ones leads to improvement in overall performance of the simulation and reducing of execution time."
+}
+
+
+@INPROCEEDINGS{7965131, 
+author={J. Posner and C. Fohry}, 
+booktitle={2017 IEEE International Parallel and Distributed Processing Symposium Workshops (IPDPSW)}, 
+title={Fault Tolerance for Cooperative Lifeline-Based Global Load Balancing in Java with APGAS and Hazelcast}, 
+year={2017}, 
+volume={}, 
+number={}, 
+pages={854-863}, 
+abstract={Fault tolerance is a major issue for parallel applications. Approaches on application-level are gaining increasing attention because they may be more efficient than system-level ones. In this paper, we present a generic reusable framework for fault-tolerant parallelization with the task pool pattern. Users of this framework can focus on coding sequential tasks for their problem, while respecting some framework contracts. The framework is written in Java and deploys the APGAS library as well as Hazelcasts distributed and fault-tolerant IMap. Our fault-tolerance scheme uses two system-wide maps, in which it stores, e.g., backups of local task pools. Framework users may configure the number of backup copies to control how many simultaneous failures are tolerated. The algorithm is correct in the sense that the computed result is the same as in non-failure case, or the program aborts with an error message. In experiments with up to 128 workers, we compared the frameworks performance with that of a non-fault-tolerant variant during failure-free operation. For the UTS and BC benchmarks, the overhead was at most 35\%. Measured values were similar as for a related, but less flexible fault-tolerant X10 framework, without a clear winner. Raising the number of backup copies to six only marginally improved the overhead.}, 
+keywords={Java;fault tolerant computing;parallel processing;resource allocation;APGAS library;Hazelcast;Java;cooperative lifeline-based global load balancing;fault-tolerant IMap;fault-tolerant parallelization;Data structures;Fault tolerance;Fault tolerant systems;Java;Libraries;Load management;Synchronization;APGAS;Hazelcast;Java;fault tolerance;load balancing;resiliency;task pool}, 
+doi={10.1109/IPDPSW.2017.31}, 
+ISSN={}, 
+month={May},}
+
+
+
+
+@phdthesis{barat:tel-01672546,
+  TITLE = {{Load balancing of multiphysics simulations by multi-criteria graph partitioning}},
+  AUTHOR = {Barat, R{\'e}mi},
+  URL = {https://tel.archives-ouvertes.fr/tel-01672546},
+  SCHOOL = {{Universit{\'e} de Bordeaux}},
+  YEAR = {2017},
+  MONTH = Dec,
+  KEYWORDS = {Partitioning Algorithms ;  Graphs ;  Multi-criteria ;  Multilevel ;  Combinatorial Optimization ; Algorithmes de partitionnement ;  Graphes ;  Multi-crit{\`e}res ;  Multi-niveaux ;  Optimisation combinatoire},
+  TYPE = {Theses},
+  PDF = {https://tel.archives-ouvertes.fr/tel-01672546/file/2017_12_thesis.pdf},
+  HAL_ID = {tel-01672546},
+  HAL_VERSION = {v1},
+abstract = "Multiphysics simulation couple several computation phases. When they are run in parallel on memory-distributed architectures, minimizing the simulation time requires in most cases to balance the workload across computation units, for each computation phase. Moreover, the data distribution must minimize the induced communication. This problem can be modeled as a multi-criteria graph partitioning problem. We associate with each vertex of the graph a vector of weights, whose components, called ``criteria'', model the workload of the vertex for each computation phase. The edges between vertices indicate data dependencies, and can be given a weight representing the communication volume transferred between the two vertices. The goal is to find a partition of the vertices that both balances the weights of each part for each criterion, and minimizes the ``edgecut'', that is, the sum of the weights of the edges cut by the partition. The maximum allowed imbalance is provided by the user, and we search for a partition that minimizes the edgecut, among all the partitions whose imbalance for each criterion is smaller than this threshold. This problem being NP-Hard in the general case, this thesis aims at devising and implementing heuristics that allow us to compute efficiently such partitions. Indeed, existing tools often return partitions whose imbalance is higher than the prescribed tolerance. Our study of the solution space, that is, the set of all the partitions respecting the balance constraints, reveals that, in practice, this space is extremely large. Moreover, we prove in the mono-criterion case that a bound on the normalized vertex weights guarantees the existence of a solution, and the connectivity of the solution space. Based on these theoretical results, we propose improvements of the multilevel algorithm. Existing tools implement many variations of this algorithm. By studying their source code, we emphasize these variations and their consequences, in light of our analysis of the solution space. Furthermore, we define and implement two initial partitioning algorithms, focusing on returning a solution. From a potentially imbalanced partition, they successively move vertices from one part to another. The first algorithm performs any move that reduces the imbalance, while the second performs at each step the move reducing the most the imbalance. We present an original data structure that allows us to optimize the choice of the vertex to move, and leads to partitions of imbalance smaller on average than existing methods. We describe the experimentation framework, named Crack, that we implemented in order to compare the various algorithms at stake. This comparison is performed by partitioning a set of instances including an industrial test case, and several fictitious cases. We define a method for generating realistic weight distributions corresponding to ``Particles-in-Cells''-like simulations. Our results demonstrate the necessity to coerce the vertex weights during the coarsening phase of the multilevel algorithm. Moreover, we evidence the impact of the vertex ordering, which should depend on the graph topology, on the efficiency of the ``Heavy-Edge'' matching scheme. The various algorithms that we consider are implemented in an open-source graph partitioning software called Scotch. In our experiments, Scotch and Crack returned a balanced partition for each execution, whereas MeTiS, the current most used partitioning tool, fails regularly. Additionally, the edgecut of the solutions returned by Scotch and Crack is equivalent or better than the edgecut of the solutions returned by MeTiS.",
+}
+
+
+
+@article{dlbgraphgpu,
+title = "Dynamic Load Balancing Strategies for Graph Applications on GPUs",
+author = { Ananya Raval and Rupesh Nasre and Vivek Kumar and Vasudevan R and Sathish Vadhiyar and Keshav Pingali },
+year = "2017",
+journal = "arXiv:1711.00231 [cs.DC]",
+abstract = "Acceleration of graph applications on GPUs has found large interest due to the ubiquitous use of graph processing in various domains. The inherent \textit{irregularity} in graph applications leads to several challenges for parallelization. A key challenge, which we address in this paper, is that of load-imbalance. If the work-assignment to threads uses node-based graph partitioning, it can result in skewed task-distribution, leading to poor load-balance. In contrast, if the work-assignment uses edge-based graph partitioning, the load-balancing is better, but the memory requirement is relatively higher. This makes it unsuitable for large graphs. In this work, we propose three techniques for improved load-balancing of graph applications on GPUs. Each technique brings in unique advantages, and a user may have to employ a specific technique based on the requirement. Using Breadth First Search and Single Source Shortest Paths as our processing kernels, we illustrate the effectiveness of each of the proposed techniques in comparison to the existing node-based and edge-based mechanisms.",
+}
+
+
