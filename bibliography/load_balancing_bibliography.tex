@@ -1,4 +1,3 @@
-
 \documentclass{article}
 \usepackage[style=numeric]{biblatex}
 \usepackage[margin=1.0in]{geometry}
@@ -26,16 +25,29 @@
 
 \subsection{diffusion}
 
-\cite{Diamond:2017:DLB:3148226.3148236}
-\cite{HORTON1993209}
-\cite{Deng:2010:HDB:1889863.1889910}
-\cite{Lieber:2016:PDL:2966884.2966887}
-\cite{ROTARU2004481}
-\cite{ParabolicLB}
-\cite{CYBENKO1989279}
-\cite{10.2307/2584287}
-\cite{Boillat:1990:LBP:95324.95326}
+\let\clearpage\relax
+%\begin{center}
+%\begin{tabular}{ |c|c| } 
+% \hline
+% \include{horton} & cell 1\\ 
+% cell4 & \include{leiber} \\ 
+% cell7 & cell8 \\ 
+% \hline
+%\end{tabular}
+%\end{center}
 
+\cite{Diamond:2017:DLB:3148226.3148236}\\
+\cite{HORTON1993209}\\
+\include{horton}
+\cite{Deng:2010:HDB:1889863.1889910}\\
+\cite{Lieber:2016:PDL:2966884.2966887}\\
+\include{lieber}
+\cite{ROTARU2004481}\\
+\cite{ParabolicLB}\\
+\cite{CYBENKO1989279}\\
+\cite{10.2307/2584287}\\
+\cite{Boillat:1990:LBP:95324.95326}\\
+\include{alanheirich}
 
 \subsection{game theory}
 
@@ -49,6 +61,7 @@
 \cite{doi:10.1137/0611030}
 \cite{4227986}
 \cite{doi:10.1142/S0129054197000215}
+\cite{Sbirlea:2014:BMS:2628071.2628090}
 
 \subsection{heterogeneous}
 
@@ -84,11 +97,10 @@
 \cite{7307597}
 
 
-
-
-
-
-
+\subsection{Work Stealing}
+\cite{Yang2017}
+\cite{Chen:2015:LWS:2775085.2766450}
+\cite{Blumofe:1999:SMC:324133.324234}
 
 \subsection{other}
 
@@ -109,4 +121,3 @@
 \printbibliography
 
 \end{document}
-

@@ -1,3 +1,81 @@
+@inproceedings{Sbirlea:2014:BMS:2628071.2628090,
+ author = {Sb\^{\i}rlea, Dragos and Budimli\'{c}, Zoran and Sarkar, Vivek},
+ title = {Bounded Memory Scheduling of Dynamic Task Graphs},
+ booktitle = {Proceedings of the 23rd International Conference on Parallel Architectures and Compilation},
+ series = {PACT '14},
+ year = {2014},
+ isbn = {978-1-4503-2809-8},
+ location = {Edmonton, AB, Canada},
+ pages = {343--356},
+ numpages = {14},
+ url = {http://doi.acm.org/10.1145/2628071.2628090},
+ doi = {10.1145/2628071.2628090},
+ acmid = {2628090},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {inspector/executor, task graphs, task scheduling},
+ abstract="It is now widely recognized that increased levels of parallelism is a necessary condition for improved application performance on multicore computers. However, as the number of cores increases, the memory-per-core ratio is expected to further decrease, making per-core memory efficiency of parallel programs an even more important concern in future systems. For many parallel applications, the memory requirements can be significantly larger than for their sequential counterparts and, more importantly, their memory utilization depends critically on the schedule used when running them.
+To address this problem we propose bounded memory scheduling (BMS) for parallel programs expressed as dynamic task graphs, in which an upper bound is imposed on the program's peak memory. Using the inspector/executor model, BMS tailors the set of allowable schedules to either guarantee that the program can be executed within the given memory bound, or throw an error during the inspector phase without running the computation if no feasible schedule can be found.
+Since solving BMS is NP-hard, we propose an approach in which we first use our heuristic algorithm, and if it fails we fall back on a more expensive optimal approach which is sped up by the best-effort result of the heuristic."
+} 
+
+
+@article{Blumofe:1999:SMC:324133.324234,
+ author = {Blumofe, Robert D. and Leiserson, Charles E.},
+ title = {Scheduling Multithreaded Computations by Work Stealing},
+ journal = {J. ACM},
+ issue_date = {Sept. 1999},
+ volume = {46},
+ number = {5},
+ month = sep,
+ year = {1999},
+ issn = {0004-5411},
+ pages = {720--748},
+ numpages = {29},
+ url = {http://doi.acm.org/10.1145/324133.324234},
+ doi = {10.1145/324133.324234},
+ acmid = {324234},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {critical-path length, multiprocessor, multithreading, randomized algorithm, thread scheduling, work stealing},
+ abstract="This paper studies the problem of efficiently schedulling fully strict (i.e., well-structured) multithreaded computations on parallel computers. A popular and practical method of scheduling this kind of dynamic MIMD-style computation is work stealing, in which processors needing work steal computational threads from other processors. In this paper, we give the first provably good work-stealing scheduler for multithreaded computations with dependencies.Specifically, our analysis shows that the expected time to execute a fully strict computation on P processors using our work-stealing scheduler is T1/P + O(T inf , where T1 is the minimum serial execution time of the multithreaded computation and (T inf is the minimum execution time with an infinite number of processors. Moreover, the space required by the execution is at most S1P, where S1 is the minimum serial space requirement. We also show that the expected total communication of the algorithm is at most O(PT inf ( 1 + nd)Smax), where Smax is the size of the largest activation record of any thread and nd is the maximum number of times that any thread synchronizes with its parent. This communication bound justifies the folk wisdom that work-stealing schedulers are more communication efficient than their work-sharing counterparts. All three of these bounds are existentially optimal to within a constant factor."
+} 
+
+@article{Chen:2015:LWS:2775085.2766450,
+ author = {Chen, Quan and Guo, Minyi},
+ title = {Locality-Aware Work Stealing Based on Online Profiling and Auto-Tuning for Multisocket Multicore Architectures},
+ journal = {ACM Trans. Archit. Code Optim.},
+ issue_date = {July 2015},
+ volume = {12},
+ number = {2},
+ month = jul,
+ year = {2015},
+ issn = {1544-3566},
+ pages = {22:1--22:24},
+ articleno = {22},
+ numpages = {24},
+ url = {http://doi.acm.org/10.1145/2766450},
+ doi = {10.1145/2766450},
+ acmid = {2766450},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {History-based auto-tuning, Memory subsystem, Task scheduling},
+ abstract="Modern mainstream powerful computers adopt multisocket multicore CPU architecture and NUMA-based memory architecture. While traditional work-stealing schedulers are designed for single-socket architectures, they incur severe shared cache misses and remote memory accesses in these computers. To solve the problem, we propose a locality-aware work-stealing (LAWS) scheduler, which better utilizes both the shared cache and the memory system. In LAWS, a load-balanced task allocator is used to evenly split and store the dataset of a program to all the memory nodes and allocate a task to the socket where the local memory node stores its data for reducing remote memory accesses. Then, an adaptive DAG packer adopts an auto-tuning approach to optimally pack an execution DAG into cache-friendly subtrees. After cache-friendly subtrees are created, every socket executes cache-friendly subtrees sequentially for optimizing shared cache usage. Meanwhile, a triple-level work-stealing scheduler is applied to schedule the subtrees and the tasks in each subtree. Through theoretical analysis, we show that LAWS has comparable time and space bounds compared with traditional work-stealing schedulers. Experimental results show that LAWS can improve the performance of memory-bound programs."
+} 
+
+@Article{Yang2017,
+author="Yang, Jixiang
+and He, Qingbi",
+title="Scheduling Parallel Computations by Work Stealing: A Survey",
+journal="International Journal of Parallel Programming",
+year="2017",
+month="Jan",
+day="06",
+abstract="Work stealing has been proven to be an efficient technique for scheduling parallel computations, and has been gaining popularity as the multiprocessor/multicore-processor load balancing technology of choice in both industry and academia. A review on the work stealing scheduling is provided from the perspective of scheduling algorithms, optimization of algorithm implementation and processor architecture oriented optimization. The future research trends and recommendations driven by theory, emerging applications and motifs, architecture and heterogeneous platforms are also provided.",
+issn="1573-7640",
+doi="10.1007/s10766-016-0484-8",
+url="https://doi.org/10.1007/s10766-016-0484-8"
+}
 
 @inproceedings{Flegar:2017:OLI:3149704.3149767,
 author = {Flegar, Goran and Anzt, Hartwig},
@@ -21,9 +99,6 @@ the sparse matrix vector (SpMV) product. Making heavy use of the
 latest GPU programming features, we also enable satisfying performance for irregular and unbalanced matrices.
 In a performance comparison using 400 test matrices we reveal the new kernel being superior to the most popular SpMV implementations."
 }
-
-
-
 
 
 @article{PEARCE2017,

@@ -1,0 +1,15 @@
+challenges:\\
+-diffusion vs geometrical vs graph-based methods\\
+-tasks are migrated based on geometrical coordinates or graph topolgogy\\
+-geometrical good balance but lot of migration, e.g., gossip\\
+-diffusion never really considered in HPC\\
+this is a survey paper[a very good reference]:\\
+- load transfer vector prepared by node to move tasks to another node\\
+- CHEBY algorithm not uses difference in work load\\
+- PARMETIS uses diffusion, ZOLTAN library and GLB library should be in mind\\
+- chemotaxis uses capacity on me - load on target\\
+- which tasks to send based on comm reduction, i.e., comm with neighbors only\\
+their questions are our questions:\\
+-how can we apply diffusion on today’s common hardware topologies like fat trees?\\
+-What is a fast and high-quality method for task selection allowing to trade-off balance, migration and edge-cut? \\
+-How do we scalably implement the termination criterion for diffusion when no fast collectives are available? E. g. use approx or auto-tune iteration count?\\ 
