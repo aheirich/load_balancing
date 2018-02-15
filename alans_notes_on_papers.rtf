@@ -1,0 +1,185 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf200
+{\fonttbl\f0\froman\fcharset0 Times-Roman;\f1\ftech\fcharset77 Symbol;\f2\froman\fcharset0 TimesNewRomanPSMT;
+\f3\fswiss\fcharset0 ArialMT;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red0\green0\blue177;\red0\green0\blue83;
+\red255\green255\blue255;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c0\c7059\c74902;\cssrgb\c0\c0\c40000;
+\cssrgb\c100000\c100000\c100000;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{none\}.}{\leveltext\leveltemplateid1\'01.;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{none\}.}{\leveltext\leveltemplateid101\'01.;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid2}
+{\list\listtemplateid3\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{none\}.}{\leveltext\leveltemplateid201\'01.;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid3}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}}
+\margl1440\margr1440\vieww13140\viewh15820\viewkind0
+\deftab720
+\pard\pardeftab720\sl520\sa240\partightenfactor0
+
+\f0\fs24 \cf2 \expnd0\expndtw0\kerning0
+\
+Dynamic Load Balancing of Massively Parallel Unstructured Meshes \
+\pard\pardeftab720\sl360\slmult1\partightenfactor0
+\cf2 finite element, finite volume unstructured adapting meshes\
+Diffusive partition improvement, application specified criteria\
+N-graph: hyper graph structure represents relations among elements\
+Diffusion is performed on the N-graph\
+A multigraph allows multiple edges between a pair of vertices\
+The N-graph does this for hyper graphs\
+Saves on memory versus just a graph\
+Imbalance = T_max / T_mean\
+Does not explain how to compute the transfer amount\
+Graph distance: migrate elements in order according to their distance from the cell center\
+Experiments : billion element mesh airplane tail structure\
+Argonne Mira blue gene Q\
+128*2^10 to 512*2^10 elements cases\
+Showed reasonable improvement, 1.5 imbalance to 1.12\
+Did worse on larger problems\
+\pard\pardeftab720\sl660\sa240\partightenfactor0
+\cf2 \
+Xxxx\
+A multi-level diffusion method for dynamic load balancing \
+\pard\pardeftab720\sl360\slmult1\partightenfactor0
+\cf2 fea unstructured adaptive mesh\
+No topology assumptions\
+Multilevel algorithm complexity is logarithmic in number of processors\
+Diffusion methods may require many iterations, see Boillat claims of O(n^2) iterations on n processors\
+Claim: pairwise diffusion can result in large load imbalance (I don\'92t think this is true of Laplace iteration although low frequency disturbances subside slowly)\
+See Cybenko claim of log_2(n) steps iteration, uses hypercube topology\
+The algorithm here achieves O(log_2 n) but does not depend on topology\
+Local communication costs less than nonlocal : hypercubes (this will always be true, just how much)\
+Load balancer should respect existing adjacency relationships of the domain\
+topology of the mesh may not match topology of computers\
+Basic diffusion method pairwise exchange of 0.5*(l_i - l_j) units of work\
+Multilevel algorithm aims to eliminate large scale imbalances\
+At each level divide processors into two sets and balance them as with two individuals\
+No explanation of how to choose these sets\
+Proof that it takes log_2(n) steps \'97 duh\
+requires entire system rebalance at once, not a local method\
+Claims standard diffusion techniques are bad because they don\'92t guarantee number of iterations\
+\
+\
+\
+\pard\pardeftab720\sl400\sa240\partightenfactor0
+\cf2 Heat Diffusion Based Dynamic Load Balancing for Distributed Virtual Environments \
+\pard\pardeftab720\sl360\slmult1\partightenfactor0
+\cf2 Efficient cell selection scheme\
+Local and global diffusion schemes, global performs best\
+Global means knows all servers, local means only knows nearest neighbors\
+Note: reference ou and ranka 1997 solve lb problem as linear programming\
+Distributed virtual environments prefer fast solution over optimal solution\
+Experiment using simulated workloads, virtual environment users moving through the environment, environment is partitioned into regions, one region per server\
+\
+\
+\
+\
+\pard\pardeftab720\sl560\sa240\partightenfactor0
+\cf2 The Potential of Diffusive Load Balancing at Large Scale \
+Good survey paper, worth reading again\
+\pard\pardeftab720\sl360\slmult1\partightenfactor0
+\cf2 Compare diffusion to geometric and graph based methods on thousands of nodes\
+Space filling curves, recursive bisection, parMetis, hierarchical space filling curves\
+Concludes diffusion has advantages\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\sa240\partightenfactor0
+\ls1\ilvl0\cf2 \kerning1\expnd0\expndtw0 {\listtext	.	}\expnd0\expndtw0\kerning0
+The second-order algo- rithm [\cf3 15\cf2 ] extends OD such that the previous iteration\'92s transfer influences the current. The parameter \uc0\u946  
+\f1 \uc0\u8712 
+\f0  ( 0,2) controls the influence. Optimal values are derived in [\cf3 9\cf2 ] \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\sa240\partightenfactor0
+\ls2\ilvl0\cf2 \kerning1\expnd0\expndtw0 {\listtext	.	}\expnd0\expndtw0\kerning0
+[9] \'a0R. Elsa\uc0\u32 \u776 sser, B. Monien, and R. Preis. Diffusion Schemes for Load Balancing on Heterogeneous Networks. Theory Comput. Sys., 35(3):305\'96320, 2002. \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\sa240\partightenfactor0
+\ls3\ilvl0\cf2 \kerning1\expnd0\expndtw0 {\listtext	.	}\expnd0\expndtw0\kerning0
+[15] \'a0S. Muthukrishnan, B. Ghosh, and M. H. Schultz. First \uc0\u8232 and Second Order Diffusive Methods for Rapid, Coarse, Distributed Load Balancing. Theory Comput. Sys., 31:331\'96354, 1998. \
+\pard\tx720\pardeftab720\sl280\sa240\partightenfactor0
+\cf2 Survey based on improving diffusion\
+Original diffusion\
+Second order diffusion\
+Improved diffusion called cheby\
+Chemotaxis-inspired diffusion, additional round of exchange of capacity of the target node guides the diffusion locally\
+Dimension exchange - Xu and Lau\
+\
+\
+\
+\pard\pardeftab720\sl520\sa240\partightenfactor0
+\cf2 Dynamic load balancing by diffusion in heterogeneous systems \
+\pard\pardeftab720\sl300\sa240\partightenfactor0
+
+\fs26\fsmilli13333 \cf2 Our contribution  can be summarized as follows: we give a direct explicit expression of the balancing flow generated byageneralizeddiffusionalgorithmandwe show that this flow has an interesting property, that it is ascaledprojectionofanyotherbalancingflowinthe same heterogeneous environment. We give estimations forthesecondlargesteigenvalueofageneralized diffusion matrix and we estimate the complexity of the proposedalgorithm.Wefurthershowthatthisalgo- rithm has a better convergence factor than the hydro- dynamicalgorithm\cf4 [17,18]\cf2 .Comparedtoother approaches, the one we consider here offers the advantage of not using parameters that are dependent upon the eigenvalues of the Laplacian of the commu- nication graph. 
+\fs24 \
+\pard\tx720\pardeftab720\sl280\sa240\partightenfactor0
+\cf2 Solves load balancing and mapping\
+Since communication changes so frequently cannot afford to compute Laplacian eigenvalues\
+Analogy to markov chains\
+Connections between generalized diffusion matrices and Laplacian spectrum of the graph\
+Bounds on eigenvalues\
+Migration flow - expression for the flow\
+Good paper lots of analysis\
+\pard\pardeftab720\sl300\sa240\partightenfactor0
+
+\fs26\fsmilli13333 \cf2 Estimations were given forthemaximumnumberofstepsthatsuchaniterative process may take to balance\uc0\u8232 purpose, some general bounds were formulated for the secondlargesteigenvalueofageneralizeddiffusion matrix. These bounds were also used to show that there aregeneralizeddiffusionalgorithmsthattheoretically converge faster than the hydrodynamic algorithm 
+\fs24 \
+\pard\tx720\pardeftab720\sl280\sa240\partightenfactor0
+\cf2 \
+\
+\
+\pard\tx720\pardeftab720\sl300\sa240\partightenfactor0
+
+\fs26\fsmilli13333 \cf2 (Cybenko) Dynamic load balancing for distributed memory multiprocessors 
+\fs24 \uc0\u8232 {\field{\*\fldinst{HYPERLINK "https://www.sciencedirect.com/science/article/pii/074373158990021X"}}{\fldrslt https://www.sciencedirect.com/science/article/pii/074373158990021X}}\
+Get the pdf at work\
+
+\fs26\fsmilli13333 \
+\
+Xu & Lau: Iterative Dynamic Load Balancing in Multicomputers 
+\fs24 \uc0\u8232 uses successive over relaxation to find an optimal step size for convergence\
+\
+I wonder: do these convergence issues really matter?  Is the simplest scheme good enough?\
+\
+\
+\
+Boillat: 
+\fs26\fsmilli13333 Load Balancing and Poisson Equation in a Graph 
+\fs24 \uc0\u8232 \
+Show polynomial time convergence to equilibrium\
+\pard\pardeftab720\sl300\sa240\partightenfactor0
+
+\b\fs26\fsmilli13333 \cf2 \cb5 Remark 5. 
+\f2\b0\fs29\fsmilli14667 In the discrete case, i.e. working with individual processes, our problem is equivalent 
+\fs26\fsmilli13333 to 
+\fs29\fsmilli14667 the random walk problem in graphs[20] 
+\f0\fs24 \cb1 \
+\pard\pardeftab720\sl320\sa240\partightenfactor0
+
+\f2\fs26\fsmilli13333 \cf2 \cb5 20. 
+\f0\i\fs24 D. 
+\f2\i0 Aldous. 
+\f3\b \'91An 
+\f2\b0 inaoduction to covering problems for random 
+\f3\b\fs21\fsmilli10667 walks 
+\f2\b0\fs24 on 
+\f0\b\fs21\fsmilli10667 graphs\'92.
+\i\b0 J. 
+\fs24 Theoretical 
+\i0 \cb1 \
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\i \cf2 \cb5 Probability, 
+\f2\i0 2(1), 87-89 (1989).\cb1 \uc0\u8232 
+\f0 \
+\pard\tx720\pardeftab720\sl300\sa240\partightenfactor0
+\cf2 \
+\pard\tx720\pardeftab720\sl280\sa240\partightenfactor0
+\cf2 \
+\
+******* meeting with Karthik 2/14/18 to discuss diffusion papers *******\
+Idea for a survey\
+Generate one expression that describes all of the load balancing and mapping terms, similar to the IJFCS paper\
+Then show how each of the diffusion papers is contained in that expression\
+Compare an FEA mesh problem versus a graph based problem like used in the lifeline paper\
+\
+How to organize methods into a taxonomy:\
+Embarrassingly parallel versus not (does it care about mapping?)\
+Local versus global\
+Static versus dynamic\
+Expensive versus cheap\
+\
+\
+}
