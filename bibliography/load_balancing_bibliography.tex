@@ -281,6 +281,8 @@ Probability, 2(1), 87-89 (1989).
 
 
 
+\medskip
+
 notes on
 \cite{GROSU20051022}
 from Alan
@@ -353,6 +355,56 @@ notes on
 from Alan
 
 Entirely theoretical result, random movement of tasks with uniform weights
+
+
+
+
+\medskip
+
+notes on
+\cite{BELIKOVETSKY201616}
+from alan
+
+Load Rebalancing Games in Dynamic Systems with Migration Costs 
+Initial assignment of jobs to identical parallel machines
+
+Machines are added or subtracted
+
+Extension parameter $\sigma$ is added to the cost of a job after it is moved (This does not seem right, movement should incur a one time cost, not a repeated cost)
+
+Paper proves existence and calculation of Nash equilibrium and Strong Nash equilibrium
+
+Under some assumptions any stable modified schedule approximates well an optimal schedule
+
+“Each job incurs a cost which is equal to the total load on the machine it is assigned to” … ????
+See game theoretic treatments of this problem 12, 2, 5, 8, survey in 17
+	.	[2]  N. Andelman, M. Feldman, and Y. Mansour. Strong Price of Anarchy. In SODA, 2007 
+	.	[5]  A. Czumaj and B. V ̈ocking. Tight bounds for worst-case equilibria. In ACM Transactions on Algo-  rithms, vol.3(1), 2007 
+	.	[8]  A. Fiat, H. Kaplan, M. Levi, and S. Olonetsky. Strong Price of Anarchy for Machine Load Balancing. In ICALP, 2007. 
+	.	[12] R.L. Graham. Bounds on Multiprocessing Timing Anomalies. SIAM J. Appl. Math., 17:263–269, 1969. 
+	.	[17] B. V ̈ocking. In N. Nisan, T. Roughgarden, E. Tardos and V. Vazirani, eds., Algorithmic Game Theory. Chapter 20: Selfish Load Balancing. Cambridge University Press, 2007. 
+$s_0$ assignment of $n$ jobs on $m_0$ machines
+$m’$ machine are added or removed
+Seek a Nash equilibrium $s$ where no machine can improve its situation by changing machines
+``Assume that some preprocessing is done at the time a client is assigned to a server, before the download actually begins (e.g., locating the required file, format conversion, etc.). Clients might choose to switch to a mirror server. Such a change would require repeating the preprocessing work on the new server.   Another example of a system in which extension penalty occurs is of an RPC (Remote Proce- dure Call) service. In this service, a cloud of servers enables service to simultaneous users. When the system is upgraded, more virtual servers are added. Users might switch to the new servers and get a better service (with less congestion), however, some set-up time and configuration tuning is required for each new user.  Note that in all the above applications, the delay caused due to a migration is independent of the migrating job. 
+’’
+These sound like one-time costs to me hence my objection to this analysis, also the cost may depend on the job (amount of data movement, size of code, number of open files, etc)
+
+Section 1.1 some issues with notation, use of $L_i(s)$ and $L_s(j)$ to mean different things?
+“Price of anarchy” = ratio between max cost of a Nash equilibrium and the optimum schedule (load imbalance)
+“Price of stability” = ratio between min cost of a Nash equilibrium and the optimum schedule
+A set of players form a “coalition” if each job moves and strictly reduces its cost
+Assignment is a “strong Nash equilibrium” if there exists no such coalition
+Similar notions of strong price of anarchy, strong price of stability
+
+``The simple greedy List-scheduling (LS) algorithm [11] provides a $(2 - 1/m)$approximation to the minimum makespan problem. A bit better approximation ratio of  $((4/3) - (1/3m))$ is guaranteed by the Longest Processing Time (LPT) algorithm [12]. A PTAS for the minimum makespan problem on identical machines is given in [13]. ‘’
+
+``We show that any job scheduling game with added or removed machines possesses at least one Nash equilibrium schedule. Moreover, some optimal solution is also a Nash equilibrium, and thus, the price of stability is 1. We show that in general, the price of anarchy is unbounded when machines are either added or removed. ‘’
+
+``We note that in a dynamic setting in which machines are added or removed and migrations 
+are free of cost (i.e., when $\sigma$ = 0), then the results known for classic load balancing games apply.   In particular, the P oA assuming $\sigma$ = 0 is $2 - (2 / (m+1))$ for a game with m machines in the modified $m+1$  systems. The proofs are identical to the proofs for a fixed number of machines. Thus, the difference between our results and the results for the classic load balancing game are due to the migration penalty. ‘’
+
+Sections on machine addition, machine removed, coalitions.  Each case proves existence of solutions.
 
 
 
