@@ -877,7 +877,93 @@ issn = "0743-7315",
 doi = "https://doi.org/10.1006/jpdc.1995.1007",
 url = "http://www.sciencedirect.com/science/article/pii/S0743731585710076",
 author = "C.Z. Xu and F.C.M. Lau",
-abstract = "The generalized dimension exchange (GDE) method is a fully distributed load balancing method that operates in a relaxation fashion for multicomputers with a direct communication network. It is parameterized by an exchange parameter λ that governs the splitting of load between a pair of directly connected processors during load balancing. An optimal λ would lead to the fastest convergence of the balancing process. Previous work has resulted in the optimal λ for the binary n-cubes. In this paper, we derive the optimal lambda′s for the k-ary n-cube network and its variants-the ring, the torus, the chain, and the mesh. We establish the relationships between the optimal convergence rates of the method when applied to these structures, and conclude that the GDE method favors high-dimensional k-ary n-cubes. We also reveal the superiority of the GDE method to another relaxation-based method, the diffusion method. We further show through statistical stimulations that the optimal lambda′s do speed up the GDE balancing procedure significantly. Because of its simplicity, the method is readily implementable. We report on the implementation of the method in two data-parallel computations in which the improvement in performance due to GDE balancing is substantial."
+abstract = "The generalized dimension exchange (GDE) method is a fully distributed load balancing method that operates in a relaxation fashion for multicomputers with a direct communication network. It is parameterized by an exchange parameter lambda that governs the splitting of load between a pair of directly connected processors during load balancing. An optimal lambda would lead to the fastest convergence of the balancing process. Previous work has resulted in the optimal lambda for the binary n-cubes. In this paper, we derive the optimal lambda for the k-ary n-cube network and its variants-the ring, the torus, the chain, and the mesh. We establish the relationships between the optimal convergence rates of the method when applied to these structures, and conclude that the GDE method favors high-dimensional k-ary n-cubes. We also reveal the superiority of the GDE method to another relaxation-based method, the diffusion method. We further show through statistical stimulations that the optimal lambda do speed up the GDE balancing procedure significantly. Because of its simplicity, the method is readily implementable. We report on the implementation of the method in two data-parallel computations in which the improvement in performance due to GDE balancing is substantial."
+}
+
+
+
+@report{Cilk,
+author = {Robert D. Blumofe and Christoper F. Joerg and Bradley C. Kuszmaul and Charles E. Leiserson and Keith H. Randall and Yuli Zhou},
+title = "Cilk: An Efficient Multithreaded Runtime System",
+Year = {1995},
+publisher = "MIT Laboratory for Computer Science Technical Report",
+abstract = "Cilk (pronounced ``silk'') is a C-based runtime system for multithreaded parallel programming.  In this paper, we document the efficiency of the Cilk work-stealing scheduler, both empirically and analytically. We show that on real and synthetic applications, the ``work'' and ``critical-path length'' of a Cilk computation can be used to model performance accurately. Consequently, a Cilk programmer can focus on reducing the computations work and critical-path length, insulated from load balancing and other runtime scheduling issues. We also prove that for the class of ``fully stric''t (well-structured) programs, the Cilk scheduler achieves space, time, and communication bounds all within a constant factor of optimal.  The Cilk runtime system currently runs on the Connection Machine CM5 MPP, the Intel Paragon MPP, the Sun Sparcstation SMP, and the Cilk-NOW network of workstations. Applications written in Cilk include protein folding, graphic rendering, backtrack search, and the Socrates chess program, which won second prize in the 1995 World Computer Chess Championship."
+}
+
+
+
+@inproceedings{Saraswat:2011:LGL:1941553.1941582,
+ author = {Saraswat, Vijay A. and Kambadur, Prabhanjan and Kodali, Sreedhar and Grove, David and Krishnamoorthy, Sriram},
+ title = {Lifeline-based Global Load Balancing},
+ booktitle = {Proceedings of the 16th ACM Symposium on Principles and Practice of Parallel Programming},
+ series = {PPoPP '11},
+ year = {2011},
+ isbn = {978-1-4503-0119-0},
+ location = {San Antonio, TX, USA},
+ pages = {201--212},
+ numpages = {12},
+ url = {http://doi.acm.org/10.1145/1941553.1941582},
+ doi = {10.1145/1941553.1941582},
+ acmid = {1941582},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {distributed work-stealing, global load balancing, uts, x10},
+ abstract = {On shared-memory systems, Cilk-style work-stealing has been used to effectively parallelize irregular task-graph based applications such as Unbalanced Tree Search (UTS). There are two main difficulties in extending this approach to distributed memory. In the shared memory approach, thieves (nodes without work) constantly attempt to asynchronously steal work from randomly chosen victims until they find work. In distributed memory, thieves cannot autonomously steal work from a victim without disrupting its execution. When work is sparse, this results in performance degradation. In essence, a direct extension of traditional work-stealing to distributed memory violates the work-first principle underlying work-stealing. Further, thieves spend useless CPU cycles attacking victims that have no work, resulting in system inefficiencies in multi-programmed contexts. Second, it is non-trivial to detect active distributed termination (detect that programs at all nodes are looking for work, hence there is no work). This problem is well-studied and requires careful design for good performance. Unfortunately, in most existing languages/frameworks, application developers are forced to implement their own distributed termination detection.  In this paper, we develop a simple set of ideas that allow work-stealing to be efficiently extended to distributed memory. First, we introduce lifeline graphs: low-degree, low-diameter, fully connected directed graphs. Such graphs can be constructed from k-dimensional hypercubes. When a node is unable to find work after w unsuccessful steals, it quiesces after informing the outgoing edges in its lifeline graph. Quiescent nodes do not disturb other nodes. A quiesced node is reactivated when work arrives from a lifeline and itself shares this work with those of its incoming lifelines that are activated. Termination occurs precisely when computation at all nodes has quiesced. In a language such as X10, such passive distributed termination can be detected automatically using the finish construct -- no application code is necessary.  Our design is implemented in a few hundred lines of X10. On the binomial tree described in olivier:08, the program achieve 87\% efficiency on an Infiniband cluster of 1024 Power7 cores, with a peak throughput of 2.37 GNodes/sec. It achieves 87\% efficiency on a Blue Gene/P with 2048 processors, and a peak throughput of 0.966 GNodes/s. All numbers are relative to single core sequential performance. This implementation has been refactored into a reusable global load balancing framework. Applications can use this framework to obtain global load balance with minimal code changes.  In summary, we claim: (a) the first formulation of UTS that does not involve application level global termination detection, (b) the introduction of lifeline graphs to reduce failed steals (c) the demonstration of simple lifeline graphs based on k-hypercubes, (d) performance with superior efficiency (or the same efficiency but over a wider range) than published results on UTS. In particular, our framework can deliver the same or better performance as an unrestricted random work-stealing implementation, while reducing the number of attempted steals.},
+} 
+
+
+
+
+@inproceedings{Galvez:2017:ATM:3079079.3079104,
+ author = {Galvez, Juan J. and Jain, Nikhil and Kale, Laxmikant V.},
+ title = {Automatic Topology Mapping of Diverse Large-scale Parallel Applications},
+ booktitle = {Proceedings of the International Conference on Supercomputing},
+ series = {ICS '17},
+ year = {2017},
+ isbn = {978-1-4503-5020-4},
+ location = {Chicago, Illinois},
+ pages = {17:1--17:10},
+ articleno = {17},
+ numpages = {10},
+ url = {http://doi.acm.org/10.1145/3079079.3079104},
+ doi = {10.1145/3079079.3079104},
+ acmid = {3079104},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {automated mapping, network topology, profiling, topology aware mapping},
+ abstract = "Topology-aware mapping aims at assigning tasks to processors in a way that minimizes network load, thus reducing the time spent waiting for communication to complete. Many mapping schemes and algorithms have been proposed. Some are application or domain specific, and others require significant effort by developers or users to successfully apply them. Moreover, a task mapping algorithm by itself is not enough to map the diverse set of applications that exist. Applications can have distinct communication patterns, from point-to-point communication with neighbors in a virtual process grid, to irregular point-to-point communication, to different types of collectives with differing group sizes, and any combination of the above. These patterns should be analyzed, and critical patterns extracted and automatically provided to the mapping algorithm, all without specialized user input. To our knowledge, this problem has not been addressed before for the general case.  In this paper, we propose a complete and automatic mapping system that does not require special user involvement, works with any application, and whose mapping performs better than existing schemes, for a wide range of communication patterns and machine topologies. This makes it suitable for online mapping of HPC applications in many different scenarios.  We evaluate our scheme with several applications exhibiting different communication patterns (including collectives) on machines with 3D torus, 5D torus and fat-tree network topologies, and show up to 2.2x performance improvements.",
+} 
+
+
+@article{BELIKOVETSKY201616,
+title = "Load rebalancing games in dynamic systems with migration costs",
+journal = "Theoretical Computer Science",
+volume = "622",
+pages = "16 - 33",
+year = "2016",
+issn = "0304-3975",
+doi = "https://doi.org/10.1016/j.tcs.2016.01.030",
+url = "http://www.sciencedirect.com/science/article/pii/S0304397516000542",
+author = "Sofia Belikovetsky and Tami Tamir",
+keywords = "Algorithms, Load balancing games, Dynamic systems, Nash equilibrium",
+abstract = "We consider the following dynamic load balancing game: Given an initial assignment of jobs to identical parallel machines, the system is modified; specifically, some machines are added or removed. Each job's cost is the load on the machine it is assigned to; thus, when machines are added, jobs have an incentive to migrate to the new unloaded machines. When machines are removed, the jobs assigned to them must be reassigned. Consequently, other jobs might also benefit from migrations. In our job-extension penalty model, for a given extension parameter $\sigma \ge 0$, if the machine on which a job is assigned to in the modified schedule is different from its initial machine, then the jobs processing time is extended by $\sigma$. We provide answers to the basic questions arising in this model. Namely, the existence and calculation of a Nash Equilibrium and a Strong Nash Equilibrium, and their inefficiency compared to an optimal schedule. Our results show that the existence of job-migration penalties might lead to poor stable schedules; however, if the modification is a result of a sequence of improvement steps or, better, if the sequence of improvement steps can be supervised in some way (by forcing the jobs to play in a specific order) then any stable modified schedule approximates well an optimal one. Our work adds two realistic considerations to the study of job scheduling games: the analysis of the common situation in which systems are upgraded or suffer from failures, and the practical fact according to which job migrations are associated with a cost."
+}
+
+
+@article{BARAM2014241,
+title = "Reoptimization of the minimum total flow-time scheduling problem",
+journal = "Sustainable Computing: Informatics and Systems",
+volume = "4",
+number = "4",
+pages = "241 - 251",
+year = "2014",
+note = "Special Issue on Energy Aware Resource Management and Scheduling (EARMS)",
+issn = "2210-5379",
+doi = "https://doi.org/10.1016/j.suscom.2014.08.011",
+url = "http://www.sciencedirect.com/science/article/pii/S2210537914000523",
+author = "Guy Baram and Tami Tamir",
+keywords = "Algorithms, Scheduling, Minimum flow-time, Transition cost, Reoptimization",
+abstract = "We consider reoptimization problems arising in dynamic scheduling environments, such as manufacturing systems and virtual machine managers. Due to changes in the environment (out-of-order or new resources, modified jobs’ processing requirements, etc.), the schedule needs to be modified. That is, jobs might be migrated from their current machine to a different one. Migrations are associated with a cost – due to relocation overhead and machine set-up times. In some systems, a migration is also associated with job extension. The goal is to find a good modified schedule, with a low transition cost from the initial one. We consider the objective of minimizing the total flow-time. We present optimal algorithms for the problem of achieving an optimal solution using the minimal possible transition cost. The algorithms and their running times depend on our assumptions on the instance and the allowed modifications. For the modification of machines’ addition, we also present an optimal algorithm for achieving the best possible schedule using a given limited budget for the transition."
 }
 
 

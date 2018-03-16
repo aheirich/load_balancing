@@ -1,0 +1,266 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf200
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 AppleSymbols;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red0\green0\blue177;\red0\green0\blue83;
+\red255\green255\blue255;\red35\green31\blue32;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c0\c7059\c74902;\cssrgb\c0\c0\c40000;
+\cssrgb\c100000\c100000\c100000;\csgenericrgb\c13725\c12157\c12549;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{none\}.}{\leveltext\leveltemplateid1\'01.;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{none\}.}{\leveltext\leveltemplateid101\'01.;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid2}
+{\list\listtemplateid3\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{none\}.}{\leveltext\leveltemplateid201\'01.;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid3}
+{\list\listtemplateid4\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{none\}.}{\leveltext\leveltemplateid301\'01.;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid4}
+{\list\listtemplateid5\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{none\}.}{\leveltext\leveltemplateid401\'01.;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid5}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}{\listoverride\listid4\listoverridecount0\ls4}{\listoverride\listid5\listoverridecount0\ls5}}
+\margl1440\margr1440\vieww13140\viewh15820\viewkind0
+\deftab720
+\pard\pardeftab720\sl288\slmult1\partightenfactor0
+
+\f0\fs28 \cf2 \expnd0\expndtw0\kerning0
+\
+Dynamic Load Balancing of Massively Parallel Unstructured Meshes \
+finite element, finite volume unstructured adapting meshes\
+Diffusive partition improvement, application specified criteria\
+N-graph: hyper graph structure represents relations among elements\
+Diffusion is performed on the N-graph\
+A multigraph allows multiple edges between a pair of vertices\
+The N-graph does this for hyper graphs\
+Saves on memory versus just a graph\
+Imbalance = T_max / T_mean\
+Does not explain how to compute the transfer amount\
+Graph distance: migrate elements in order according to their distance from the cell center\
+Experiments : billion element mesh airplane tail structure\
+Argonne Mira blue gene Q\
+128*2^10 to 512*2^10 elements cases\
+Showed reasonable improvement, 1.5 imbalance to 1.12\
+Did worse on larger problems\
+\
+Xxxx\
+A multi-level diffusion method for dynamic load balancing \
+fea unstructured adaptive mesh\
+No topology assumptions\
+Multilevel algorithm complexity is logarithmic in number of processors\
+Diffusion methods may require many iterations, see Boillat claims of O(n^2) iterations on n processors\
+Claim: pairwise diffusion can result in large load imbalance (I don\'92t think this is true of Laplace iteration although low frequency disturbances subside slowly)\
+See Cybenko claim of log_2(n) steps iteration, uses hypercube topology\
+The algorithm here achieves O(log_2 n) but does not depend on topology\
+Local communication costs less than nonlocal : hypercubes (this will always be true, just how much)\
+Load balancer should respect existing adjacency relationships of the domain\
+topology of the mesh may not match topology of computers\
+Basic diffusion method pairwise exchange of 0.5*(l_i - l_j) units of work\
+Multilevel algorithm aims to eliminate large scale imbalances\
+At each level divide processors into two sets and balance them as with two individuals\
+No explanation of how to choose these sets\
+Proof that it takes log_2(n) steps \'97 duh\
+requires entire system rebalance at once, not a local method\
+Claims standard diffusion techniques are bad because they don\'92t guarantee number of iterations\
+\
+\
+\
+Heat Diffusion Based Dynamic Load Balancing for Distributed Virtual Environments \
+Efficient cell selection scheme\
+Local and global diffusion schemes, global performs best\
+Global means knows all servers, local means only knows nearest neighbors\
+Note: reference ou and ranka 1997 solve lb problem as linear programming\
+Distributed virtual environments prefer fast solution over optimal solution\
+Experiment using simulated workloads, virtual environment users moving through the environment, environment is partitioned into regions, one region per server\
+\
+\
+\
+\
+The Potential of Diffusive Load Balancing at Large Scale \
+Good survey paper, worth reading again\
+Compare diffusion to geometric and graph based methods on thousands of nodes\
+Space filling curves, recursive bisection, parMetis, hierarchical space filling curves\
+Concludes diffusion has advantages\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl288\slmult1\partightenfactor0
+\ls1\ilvl0\cf2 \kerning1\expnd0\expndtw0 {\listtext	.	}\expnd0\expndtw0\kerning0
+The second-order algo- rithm [\cf3 15\cf2 ] extends OD such that the previous iteration\'92s transfer influences the current. The parameter \uc0\u946  
+\f1 \uc0\u8712 
+\f0  ( 0,2) controls the influence. Optimal values are derived in [\cf3 9\cf2 ] \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl288\slmult1\partightenfactor0
+\ls2\ilvl0\cf2 \kerning1\expnd0\expndtw0 {\listtext	.	}\expnd0\expndtw0\kerning0
+[9] \'a0R. Elsa\uc0\u32 \u776 sser, B. Monien, and R. Preis. Diffusion Schemes for Load Balancing on Heterogeneous Networks. Theory Comput. Sys., 35(3):305\'96320, 2002. \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl288\slmult1\partightenfactor0
+\ls3\ilvl0\cf2 \kerning1\expnd0\expndtw0 {\listtext	.	}\expnd0\expndtw0\kerning0
+[15] \'a0S. Muthukrishnan, B. Ghosh, and M. H. Schultz. First \uc0\u8232 and Second Order Diffusive Methods for Rapid, Coarse, Distributed Load Balancing. Theory Comput. Sys., 31:331\'96354, 1998. \
+\pard\tx720\pardeftab720\sl288\slmult1\partightenfactor0
+\cf2 Survey based on improving diffusion\
+Original diffusion\
+Second order diffusion\
+Improved diffusion called cheby\
+Chemotaxis-inspired diffusion, additional round of exchange of capacity of the target node guides the diffusion locally\
+Dimension exchange - Xu and Lau\
+\
+\
+\
+\pard\pardeftab720\sl288\slmult1\partightenfactor0
+\cf2 Dynamic load balancing by diffusion in heterogeneous systems \
+Our contribution  can be summarized as follows: we give a direct explicit expression of the balancing flow generated byageneralizeddiffusionalgorithmandwe show that this flow has an interesting property, that it is ascaledprojectionofanyotherbalancingflowinthe same heterogeneous environment. We give estimations forthesecondlargesteigenvalueofageneralized diffusion matrix and we estimate the complexity of the proposedalgorithm.Wefurthershowthatthisalgo- rithm has a better convergence factor than the hydro- dynamicalgorithm\cf4 [17,18]\cf2 .Comparedtoother approaches, the one we consider here offers the advantage of not using parameters that are dependent upon the eigenvalues of the Laplacian of the commu- nication graph. \
+\pard\tx720\pardeftab720\sl288\slmult1\partightenfactor0
+\cf2 Solves load balancing and mapping\
+Since communication changes so frequently cannot afford to compute Laplacian eigenvalues\
+Analogy to markov chains\
+Connections between generalized diffusion matrices and Laplacian spectrum of the graph\
+Bounds on eigenvalues\
+Migration flow - expression for the flow\
+Good paper lots of analysis\
+\pard\pardeftab720\sl288\slmult1\partightenfactor0
+\cf2 Estimations were given forthemaximumnumberofstepsthatsuchaniterative process may take to balance\uc0\u8232 purpose, some general bounds were formulated for the secondlargesteigenvalueofageneralizeddiffusion matrix. These bounds were also used to show that there aregeneralizeddiffusionalgorithmsthattheoretically converge faster than the hydrodynamic algorithm \
+\pard\tx720\pardeftab720\sl288\slmult1\partightenfactor0
+\cf2 \
+\
+\
+(Cybenko) Dynamic load balancing for distributed memory multiprocessors \uc0\u8232 {\field{\*\fldinst{HYPERLINK "https://www.sciencedirect.com/science/article/pii/074373158990021X"}}{\fldrslt https://www.sciencedirect.com/science/article/pii/074373158990021X}}\
+Get the pdf at work\
+\
+\
+Xu & Lau: Iterative Dynamic Load Balancing in Multicomputers \uc0\u8232 uses successive over relaxation to find an optimal step size for convergence\
+\
+I wonder: do these convergence issues really matter?  Is the simplest scheme good enough?\
+\
+\
+\
+Boillat: Load Balancing and Poisson Equation in a Graph \uc0\u8232 \
+Show polynomial time convergence to equilibrium\
+\pard\pardeftab720\sl288\slmult1\partightenfactor0
+
+\b \cf2 \cb5 Remark 5. 
+\b0 In the discrete case, i.e. working with individual processes, our problem is equivalent to the random walk problem in graphs[20] \cb1 \
+\cb5 20. D. Aldous. 
+\b \'91An 
+\b0 inaoduction to covering problems for random 
+\b walks 
+\b0 on 
+\b graphs\'92.
+\b0 J. Theoretical \cb1 \
+\cb5 Probability, 2(1), 87-89 (1989).\cb1 \uc0\u8232 \
+\pard\tx720\pardeftab720\sl288\slmult1\partightenfactor0
+\cf2 \
+\
+\
+******* meeting with Karthik 2/14/18 to discuss diffusion papers *******\
+Idea for a survey\
+Generate one expression that describes all of the load balancing and mapping terms, similar to the IJFCS paper\
+Then show how each of the diffusion papers is contained in that expression\
+Compare an FEA mesh problem versus a graph based problem like used in the lifeline paper\
+\
+How to organize methods into a taxonomy:\
+Embarrassingly parallel versus not (does it care about mapping?)\
+Local versus global\
+Static versus dynamic\
+Expensive versus cheap\
+\
+******************\
+\
+GAME THEORETIC PAPERS\
+\
+\pard\pardeftab720\sl288\slmult1\partightenfactor0
+\cf0 \kerning1\expnd0\expndtw0  NASH EQUILIBRIA IN LOAD BALANCING IN\
+DISTRIBUTED COMPUTER SYSTEMS\
+\
+Establish uniqueness of Nash equilibria\
+No software experiment\
+Not relevant\
+\
+\
+\
+\
+\cf6 Noncooperative load balancing in distributed systems\
+\
+Static load balancing problem\
+\cf0 Noncooperative game: processors work independently to arrive at equilibrium\
+Characterize Nash equilibrium and derive greedy algorithm to compute it\
+Assume Poisson arrivals, exponentially distributed task times\
+phi_i job generating rate at node I\
+s_ji fraction of user j tasks to be sent to node i\
+mu_i processing rate at node i \
+Load balancing strategy for user j is a vector of \{ s_ji \}\
+Minimize response time for user j\
+Remark: this is for multiple users (humans) submitting jobs to a distributed system (cluster).\
+Our case is one user (application) submitting tasks to an exascale system\
+\'93Best reply\'94 for a user is a strategy that gives minimal response time for that user in light of other users strategies\
+Similar problem for one user treated in Tang and Chanson[35]\
+
+\i X. Tang, S.T. Chanson, Optimizing static job scheduling in a network\
+of heterogeneous computers, in: Proceedings of the International\
+Conference on Parallel Processing, August 2000, 373\'96382. Not very interesting.
+\i0 \
+Equation (8) defines the BEST_REPLY solution\
+Execution time is O(n log n) due to the need to sort computers by workload\
+Otherwise it would be O(n)\
+This algorithm requires global knowledge of the workload of every computer at every agent and knowledge of all users strategies\
+Not scalable\
+Compared to two other lb schemes, one does a global optimization based on global knowledge, and an IOS scheme that gives good quality results\
+\pard\pardeftab720\sl288\slmult1\partightenfactor0
+\cf2 \expnd0\expndtw0\kerning0
+Experiments on 16 node cluster\
+\
+\
+\
+\pard\pardeftab720\sl288\slmult1\partightenfactor0
+\cf0 \kerning1\expnd0\expndtw0 Tight Load Balancing via Randomized Local Search\
+\
+Entirely theoretical result, random movement of tasks with uniform weights\
+\
+**********\
+\
+\
+\pard\pardeftab720\sl288\slmult1\partightenfactor0
+\cf2 \expnd0\expndtw0\kerning0
+3/7/2018\
+\pard\pardeftab720\sl288\slmult1\partightenfactor0
+\cf2 Load Rebalancing Games in Dynamic Systems with Migration Costs \
+\pard\pardeftab720\sl288\slmult1\partightenfactor0
+\cf2 Initial assignment of jobs to identical parallel machines\
+\
+Machines are added or subtracted\
+\
+Extension parameter $\\sigma$ is added to the cost of a job after it is moved (This does not seem right, movement should incur a one time cost, not a repeated cost)\
+\
+Paper proves existence and calculation of Nash equilibrium and Strong Nash equilibrium\
+\
+Under some assumptions any stable modified schedule approximates well an optimal schedule\
+\
+\'93Each job incurs a cost which is equal to the total load on the machine it is assigned to\'94 \'85 ????\
+See game theoretic treatments of this problem 12, 2, 5, 8, survey in 17\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl288\slmult1\partightenfactor0
+\ls4\ilvl0\cf2 \kerning1\expnd0\expndtw0 {\listtext	.	}\expnd0\expndtw0\kerning0
+[2] \'a0N. Andelman, M. Feldman, and Y. Mansour. Strong Price of Anarchy. In SODA, 2007 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl288\slmult1\partightenfactor0
+\ls5\ilvl0\cf2 \kerning1\expnd0\expndtw0 {\listtext	.	}\cf2 \expnd0\expndtw0\kerning0
+[5] \'a0A. Czumaj and B. V\uc0\u32 \u776 ocking. Tight bounds for worst-case equilibria. In ACM Transactions on Algo- \u8232 rithms, vol.3(1), 2007 \
+\ls5\ilvl0\cf2 \kerning1\expnd0\expndtw0 {\listtext	.	}\cf2 \expnd0\expndtw0\kerning0
+[8] \'a0A. Fiat, H. Kaplan, M. Levi, and S. Olonetsky. Strong Price of Anarchy for Machine Load Balancing. In ICALP, 2007. \
+\ls5\ilvl0\cf2 \kerning1\expnd0\expndtw0 {\listtext	.	}\cf2 \expnd0\expndtw0\kerning0
+[12] R.L. Graham. Bounds on Multiprocessing Timing Anomalies. SIAM J. Appl. Math., 17:263\'96269, 1969. \
+\ls5\ilvl0\cf2 \kerning1\expnd0\expndtw0 {\listtext	.	}\cf2 \expnd0\expndtw0\kerning0
+[17] B. V\uc0\u32 \u776 ocking. In N. Nisan, T. Roughgarden, E. Tardos and V. Vazirani, eds., Algorithmic Game Theory. Chapter 20: Selfish Load Balancing. Cambridge University Press, 2007. \
+\pard\tx720\pardeftab720\sl288\slmult1\partightenfactor0
+\cf2 $s_0$ assignment of $n$ jobs on $m_0$ machines\
+$m\'92$ machine are added or removed\
+Seek a Nash equilibrium $s$ where no machine can improve its situation by changing machines\
+``\cf2 Assume that some preprocessing is done at the time a client is assigned to a server, before the download actually begins (e.g., locating the required file, format conversion, etc.). Clients might choose to switch to a mirror server. Such a change would require repeating the preprocessing work on the new server.   Another example of a system in which extension penalty occurs is of an RPC (Remote Proce- dure Call) service. In this service, a cloud of servers enables service to simultaneous users. When the system is upgraded, more virtual servers are added. Users might switch to the new servers and get a better service (with less congestion), however, some set-up time and configuration tuning is required for each new user.  Note that in all the above applications, the delay caused due to a migration is independent of the migrating job. \
+\'92\'92\cf2 \
+These sound like one-time costs to me hence my objection to this analysis, also the cost may depend on the job (amount of data movement, size of code, number of open files, etc)\
+\
+Section 1.1 some issues with notation, use of $L_i(s)$ and $L_s(j)$ to mean different things?\
+\'93Price of anarchy\'94 = ratio between max cost of a Nash equilibrium and the optimum schedule (load imbalance)\
+\'93Price of stability\'94 = ratio between min cost of a Nash equilibrium and the optimum schedule\
+A set of players form a \'93coalition\'94 if each job moves and strictly reduces its cost\
+Assignment is a \'93strong Nash equilibrium\'94 if there exists no such coalition\
+Similar notions of strong price of anarchy, strong price of stability\
+\
+``\cf2 The simple greedy List-scheduling (LS) algorithm [11] provides a $(2 - 1/m)$approximation to the minimum makespan problem. A bit better approximation ratio of  $((4/3) - (1/3m))$ is guaranteed by the Longest Processing Time (LPT) algorithm [12]. A PTAS for the minimum makespan problem on identical machines is given in [13]. \'91\'92\
+\
+\cf2 ``\cf2 We show that any job scheduling game with added or removed machines possesses at least one Nash equilibrium schedule. Moreover, some optimal solution is also a Nash equilibrium, and thus, the price of stability is 1. We show that in general, the price of anarchy is unbounded when machines are either added or removed. \'91\'92\
+\
+\cf2 ``\cf2 We note that in a dynamic setting in which machines are added or removed and migrations \
+\pard\pardeftab720\sl340\sa240\partightenfactor0
+\cf2 are free of cost (i.e., when $\\sigma$ = 0), then the results known for classic load balancing games apply.   In particular, the P oA assuming $\\sigma$ = 0 is $2 - (2 / (m+1))$ for a game with m machines in the modified $m+1$  systems. The proofs are identical to the proofs for a fixed number of machines. Thus, the difference between our results and the results for the classic load balancing game are due to the migration penalty. \'91\'92\cf2 \
+\pard\tx720\pardeftab720\sl288\slmult1\partightenfactor0
+\cf2 \
+Sections on machine addition, machine removed, coalitions.  Each case proves existence of solutions.\
+\
+\
+\pard\pardeftab720\sl288\slmult1\partightenfactor0
+\cf2 \
+}
