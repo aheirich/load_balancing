@@ -72,21 +72,7 @@ continuous domain (mesh simulations) vs. discrete (tree search)
 %\end{center}
 
 \cite{Diamond:2017:DLB:3148226.3148236}\\
-\cite{HORTON1993209}\\
-\include{horton}
-\cite{Deng:2010:HDB:1889863.1889910}\\
-\cite{Lieber:2016:PDL:2966884.2966887}\\
-\include{lieber}
-\cite{ROTARU2004481}\\
-\cite{ParabolicLB}\\
-\cite{CYBENKO1989279}\\
-\cite{10.2307/2584287}\\
-\cite{Boillat:1990:LBP:95324.95326}\\
-\cite{XU199572}
-\include{alanheirich}
 
-
-\medskip
 notes on \cite{Diamond:2017:DLB:3148226.3148236}
 from Alan
 
@@ -121,7 +107,10 @@ Showed reasonable improvement, 1.5 imbalance to 1.12
 Did worse on larger problems
 
 
-\medskip
+
+\cite{HORTON1993209}\\
+\include{horton}
+
 
 notes on \cite{HORTON1993209}
 from Alan
@@ -160,7 +149,9 @@ requires entire system rebalance at once, not a local method
 Claims standard diffusion techniques are bad because they don’t guarantee number of iterations
 
 
-\medskip
+
+
+\cite{Deng:2010:HDB:1889863.1889910}\\
 
 notes on
 \cite{Deng:2010:HDB:1889863.1889910}
@@ -179,7 +170,8 @@ Distributed virtual environments prefer fast solution over optimal solution
 Experiment using simulated workloads, virtual environment users moving through the environment, environment is partitioned into regions, one region per server
 
 
-\medskip
+\cite{Lieber:2016:PDL:2966884.2966887}\\
+\include{lieber}
 
 notes on
 \cite{Lieber:2016:PDL:2966884.2966887}
@@ -212,9 +204,7 @@ Chemotaxis-inspired diffusion, additional round of exchange of capacity of the t
 
 Dimension exchange - Xu and Lau
 
-
-
-\medskip
+\cite{ROTARU2004481}\\
 
 notes on
 \cite{ROTARU2004481}
@@ -242,20 +232,23 @@ Estimations were given for the maximum number of steps that such an iterative pr
  purpose, some general bounds were formulated for the second largest eigenvalue of a generalized diffusion matrix. These bounds were also used to show that there are generalized diffusion algorithms that theoretically converge faster than the hydrodynamic algorithm 
 
 
-
-\medskip
+\cite{ParabolicLB}\\
+\cite{CYBENKO1989279}\\
+\cite{10.2307/2584287}\\
 
 notes on
 \cite{10.2307/2584287}
 from Alan
-
 
 uses successive over relaxation to find an optimal step size for convergence
 
 I wonder: do these convergence issues really matter?  Is the simplest scheme good enough?
 
 
-\medskip
+
+
+
+\cite{Boillat:1990:LBP:95324.95326}\\
 
 notes on
 \cite{Boillat:1990:LBP:95324.95326}
@@ -268,6 +261,14 @@ Remark 5. In the discrete case, i.e. working with individual processes, our prob
 Probability, 2(1), 87-89 (1989).
 
 
+\cite{XU199572}
+\include{alanheirich}
+
+
+
+
+
+
 
 
 
@@ -275,14 +276,9 @@ Probability, 2(1), 87-89 (1989).
 \subsection{game theory}
 
 \cite{GROSU20051022}
-\cite{doi:10.1142/S0219198902000574}
-\cite{7967109}
-\cite{BELIKOVETSKY201616}
-\cite{BARAM2014241}
 
 
 
-\medskip
 
 notes on
 \cite{GROSU20051022}
@@ -333,13 +329,11 @@ Compared to two other lb schemes, one does a global optimization based on global
 Experiments on 16 node cluster
 
 
-
-\medskip
+\cite{doi:10.1142/S0219198902000574}
 
 notes on
 \cite{doi:10.1142/S0219198902000574}
 from Alan
-
 
 Establish uniqueness of Nash equilibria
 
@@ -348,8 +342,11 @@ No software experiment
 Not relevant
 
 
-\medskip
 
+
+
+
+\cite{7967109}
 
 notes on
 \cite{7967109}
@@ -359,8 +356,7 @@ Entirely theoretical result, random movement of tasks with uniform weights
 
 
 
-
-\medskip
+\cite{BELIKOVETSKY201616}
 
 notes on
 \cite{BELIKOVETSKY201616}
@@ -371,7 +367,7 @@ Initial assignment of jobs to identical parallel machines
 
 Machines are added or subtracted
 
-Extension parameter $\sigma$ is added to the cost of a job after it is moved (This does not seem right, movement should incur a one time cost, not a repeated cost)
+Extension parameter $\sigma$ is added to the cost of a job after it is moved (this is intended for a one time cost, not repeated)
 
 Paper proves existence and calculation of Nash equilibrium and Strong Nash equilibrium
 
@@ -406,6 +402,19 @@ Similar notions of strong price of anarchy, strong price of stability
 are free of cost (i.e., when $\sigma$ = 0), then the results known for classic load balancing games apply.   In particular, the P oA assuming $\sigma$ = 0 is $2 - (2 / (m+1))$ for a game with m machines in the modified $m+1$  systems. The proofs are identical to the proofs for a fixed number of machines. Thus, the difference between our results and the results for the classic load balancing game are due to the migration penalty. ‘’
 
 Sections on machine addition, machine removed, coalitions.  Each case proves existence of solutions.
+
+
+
+
+\cite{BARAM2014241}
+
+
+
+
+
+
+
+
 
 
 
