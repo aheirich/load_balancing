@@ -1,0 +1,65 @@
+
+what we are trying to do is expand on alan's equation
+	- roofline analysis
+	- work stealing 
+	- expand mapping hierarchical 
+	- work-first vs share-first policy, can this even be captured in a formula ? 
+	- adding penalty for a failed steal
+
+	- accounting for critical path length
+
+	- with workload characterization
+		- effect of diffusive policies, update lv based on neighbor difference, second-order diffusion, improved diffusion,
+ 		- chemotaxis-inspired, dimension 
+
+	- what about task selection (i.e., mapping) is it already covered
+
+	- graph partitioning, zoltan, parmetis
+
+- in total, are we extending Diffusive methods to capture workloads without this laplacian angle ?, i.e., where the workload characterization does not follow a  laplacian.. 
+
+- in which case, do we need a result such as below ?
+if requests are made randomly by P processors to P deques with each processor allowed at most one outstanding request, then the total amount of time that the processors spend waiting for their requests to be satisfied is likely to be proportional to the total number M of requests, no matter which processors make the re- quests and no matter how the requests are distributed over time
+
+We can  view each ball and each bin as being owned by a distinct processor. If a ball is in the reservoir, it means that the ball’s owner is not making a steal request. If a ball is in a bin, it means that the ball’s owner has made a steal request to the deque of the bin’s owner, but that the request has not yet been satisfied. When a ball is removed from a bin and returned to the reservoir, it means that the request has been serviced.
+
+Title of the paper: balls, bins and more
+
+
+
+- the task comm matrix (i.e., a dependence matrix of tasks) can be formed for regular and irregular, hence these techniques apply to both. 
+- 
+
+
+comprehencsinve model.
+	- transfer of the tasks cost, 
+		-in the diffusive models this transfer cost was not considered, but it could be a constant per task
+		-finding the task to transfer to.
+		- include the cost of pushing things to GPU, also AOS to SOA. 
+	- critical path, control flow dependency graph
+		- who should run before whom is not there in the cost model ?
+		- graph that we have not accounted for, i.e., depenency graph. 
+	- d, i.e., distance matrix between processors could change
+	- c, i.e., comm matrix between tasks could change, i.e., dimensionality could change
+	
+Nice to have:
+	- mapping dependencies, or is it? 
+		- is not accounted for, 
+		- penalty, if e.g., 2 to gpu1, 2 to gpu2.
+
+	- change in d and c is it equivalent to evaluating to the cost, i.e., not the same from the last step.
+	
+
+	- theoritical proof of th eeigne value is good but the cost of the eigen value calculation, i.e.,  
+
+
+critique all the  other, taxonomy of the algorithms showing how they relate to the model, the cost model being comprehensive. 
+algorithm does not capture the transfer cost. 
+
+
+
+looking at the mapping papers and tami tamur's paper on rebalancing
+------------------------------------------------------------------
+1) Partitioning Sparse Matrices with Eigenvectors of Graphs - A heuristic algorithm is designed to compute a vertex separator in a general graph by first computing an edge separator in the graph from an eigenvector of the Laplacian matrix, and then using a maximum matching in a subgraph to compute the vertex separator. 
+
+we could describe the comm problem as an equilibrium problem, load balance is another equilibrium, mapping is equilibrium.; consider the nature of the tasks in terms of compute intensive vs comm intensive. 
