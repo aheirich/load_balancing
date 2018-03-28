@@ -267,6 +267,7 @@ Probability, 2(1), 87-89 (1989).
 
 
 
+\cite{SCHLOEGEL1997109}
 
 
 
@@ -374,22 +375,32 @@ Paper proves existence and calculation of Nash equilibrium and Strong Nash equil
 Under some assumptions any stable modified schedule approximates well an optimal schedule
 
 “Each job incurs a cost which is equal to the total load on the machine it is assigned to” … ????
+
 See game theoretic treatments of this problem 12, 2, 5, 8, survey in 17
 	.	[2]  N. Andelman, M. Feldman, and Y. Mansour. Strong Price of Anarchy. In SODA, 2007 
+
 	.	[5]  A. Czumaj and B. V ̈ocking. Tight bounds for worst-case equilibria. In ACM Transactions on Algo-  rithms, vol.3(1), 2007 
+
 	.	[8]  A. Fiat, H. Kaplan, M. Levi, and S. Olonetsky. Strong Price of Anarchy for Machine Load Balancing. In ICALP, 2007. 
+
 	.	[12] R.L. Graham. Bounds on Multiprocessing Timing Anomalies. SIAM J. Appl. Math., 17:263–269, 1969. 
+
 	.	[17] B. V ̈ocking. In N. Nisan, T. Roughgarden, E. Tardos and V. Vazirani, eds., Algorithmic Game Theory. Chapter 20: Selfish Load Balancing. Cambridge University Press, 2007. 
+
 $s_0$ assignment of $n$ jobs on $m_0$ machines
 $m’$ machine are added or removed
+
 Seek a Nash equilibrium $s$ where no machine can improve its situation by changing machines
+
 ``Assume that some preprocessing is done at the time a client is assigned to a server, before the download actually begins (e.g., locating the required file, format conversion, etc.). Clients might choose to switch to a mirror server. Such a change would require repeating the preprocessing work on the new server.   Another example of a system in which extension penalty occurs is of an RPC (Remote Proce- dure Call) service. In this service, a cloud of servers enables service to simultaneous users. When the system is upgraded, more virtual servers are added. Users might switch to the new servers and get a better service (with less congestion), however, some set-up time and configuration tuning is required for each new user.  Note that in all the above applications, the delay caused due to a migration is independent of the migrating job. 
 ’’
+
 These sound like one-time costs to me hence my objection to this analysis, also the cost may depend on the job (amount of data movement, size of code, number of open files, etc)
 
 Section 1.1 some issues with notation, use of $L_i(s)$ and $L_s(j)$ to mean different things?
 “Price of anarchy” = ratio between max cost of a Nash equilibrium and the optimum schedule (load imbalance)
 “Price of stability” = ratio between min cost of a Nash equilibrium and the optimum schedule
+
 A set of players form a “coalition” if each job moves and strictly reduces its cost
 Assignment is a “strong Nash equilibrium” if there exists no such coalition
 Similar notions of strong price of anarchy, strong price of stability
@@ -409,6 +420,66 @@ Sections on machine addition, machine removed, coalitions.  Each case proves exi
 \cite{BARAM2014241}
 
 
+Reoptimization of the minimum total flow-time scheduling problem 
+
+Guy Baram, Tami Tamir
+
+Dynamic load balancing, accounts for migration cost
+Optimal algorithm to find optimal solution with minimal migration cost (transition cost)
+Minimal solution can be found by greedy algorithms, Shorted Processing Time(SPT) assign jobs in nondecreasing order by length
+Example applications: manufacturing systems with jobs migrated along production lines; live migration of running VMs in a cloud data center; RPC servers
+
+Other papers that minimize the migration cost:
+
+	.	[10]  C. Clark, K. Fraser, S. Hand, J.G. Hansen, E. Jul, C. Limpach, I. Pratt, A. Warfield, Live migration of virtual machines, in: The 2nd Symposium on Networked Systems Design and Implementation (NSDI), 2005. 
+
+	.	[19]  S. Hacking, B. Hudzia, Improving the live migration process of large enterprise  applications, in: The 3rd International Workshop on Virtualization Technolo-  gies in Distributed Computing (VTDC), 2009.  
+
+J0 set of n0 jobs
+M0 set of m0 identical machines
+Pj is processing time for job j
+S0 schedule of the initial instance
+Changes include adding/deleting jobs from J0, machines from M0, and changing values of pj
+
+A machine can process at most one job at a time
+Price list theta(i,i’,j) is cost to migrate job j from machine I to machine I’
+Job extension penalty delta(i,i’,j) is time extension increase in pj after moving job j from machine I to I’
+Cj completion time of job j
+Minimize sum Cj = “total flow time”
+
+Two questions:
+1. Reschedule to find minimum possible transition cost
+2. Reschedule within a given budget B
+
+Section 2, time t=0: optimal algorithm for rescheduling, complexity based on complete matching in bipartite graph with O(nm) vertices
+Section 3, time t>0:
+Section 4: unit migration costs and no job extension penalty.
+Section 5: rebalancing with a budget
+Section 6: results and discussion
+
+Section 2 ——————————
+
+	.	[7]  J.L. Bruno, E.G. Coffman, R. Sethi, Scheduling independent tasks to reduce mean finishing time, Commun. ACM 17 (1974) 382–387.
+
+	.	[18]  W. Horn, Minimizing average flow-time with parallel machines, Oper. Res. 21  (1973) 846–847. 
+
+Problem instance: nxm matrix of job times, pij is time for job j on machine I
+Seems like a bug in the paper with indexing here, I is jobs and j is machines
+
+Construct a bipartite graph, nodes V = J u U
+J is the set of n jobs
+U is the set of mn nodes
+
+“Node qik is the kth from last position on machine I”
+Edges completely connect nodes in J to nodes in U
+Edge weights are w’(vj, qik) = k p’ij
+“If job j is the kth from the last job to run on machine I, it contributes k times p’ij to the sum of completion times”
+
+?? Why k times?
+
+Optimal solution is found by min-weight matching in the bipartite graph.  (Obvious)
+
+*** this algorithm is not distributed, requires global knowledge and centralized computation, ergo not scalable
 
 
 
