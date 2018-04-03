@@ -495,6 +495,43 @@ Optimal solution is found by min-weight matching in the bipartite graph.  (Obvio
 \subsection{mapping}
 
 \cite{doi:10.1137/0611030}
+
+
+Heuristic algorithm: compute Fiedler vector, use it as an edge separator, then find the vertex separator by maximum matching in a subgraph
+
+Require the two parts of the graph to be “roughly equal” in order to achieve load balance (not exactly equal)
+
+Number of zero eigenvalue of laplacian matrix is equal to the number of connected components of the graph
+
+Lots of definitions of Fiedler vector, laplacian matrix, spectral theory
+
+4. Partition of grid graphs
+
+Start with a “path graph” ?
+
+Laplacian matrix is tridiagonal -> path graph is x 0 x diagonal pattern
+
+5 spectral partitioning algorithm
+
+Compute Fiedler vector
+
+Use median value of vector elements to partition vector into left, right halves
+This is an edge separator
+
+We require a vertex separator
+Simplest method is to choose the smaller of the two  endpoint sets (vertices divided by the edge separator)
+
+But we want to compute the smallest separator
+Solution is a vertex cover of the bipartite graph
+Remove vertices a,b such that every edge is incident on one or both of these vertices
+
+To find a minimum vertex cover use maximum matching algorithm
+
+Worst case time complexity for algorithm to find one partitioning is O(sort ne)
+Where e is number of edges, n is the length of the Fiedler vector
+
+
+
 \cite{4227986}
 
 
