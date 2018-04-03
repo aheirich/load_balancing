@@ -496,6 +496,68 @@ Optimal solution is found by min-weight matching in the bipartite graph.  (Obvio
 
 \cite{doi:10.1137/0611030}
 \cite{4227986}
+
+
+Hyper graph partitioning for dynamic lb.  minimizes sum of communication costs plus migration cost.
+
+Parallel multilevel repartitioning with Zoltan load-balancing toolkit
+
+Results quality compressed favorably to ParMETIS
+
+$t_total = alpha ( t_compute + t_communication ) + t_migration + t_repartitioning$
+
+They ignore $t_compute$ and $t_repartuition$: for $t_compute$ they assume a balanced workload; for $t_repartition$ they assume this time is negligible
+
+Net = hyper edge (edge with more than two vertices)
+
+Vertices have weights wi 
+
+Nets have costs cj (like edge weights)
+
+Partition the hyper graph - each partition corresponds to one computer
+
+Hypergrah H, Partition P
+
+Wp = sum of vertex weights in partition Vp
+
+P={Vi}. Partition consists of a set of parts 
+
+Connectivity $\lambda_j$ of net j is the number of parts it connects
+
+Multilevel partitioning - fine to coarse strategy, partition the coarse graph project back up
+
+Their model combines communication cost with migration cost
+
+Epoch = execution in time between two dynamic rebalance operations
+
+Repartitioning hyper graph - augment the current epoch hyper graph Hj with additional vertices and nets to model data migration costs.  Now partition the resulting hyper graph using fixed vertices.
+
+$H^j = (V^j, E^j)$ is the hyper graph that models epoch j of the computation
+
+Rebalance following each epoch
+
+Construction of the repartitioning hyper graph:
+Add k new partition vertices ui, with zero weight, for each of k partition
+For each vertex v in the old hyper graph, add a ”migration net” from v to new vertex ui if v was in partition I
+
+Figure 1 is confusing read the text carefully
+
+Vertex ui must be fixed to partition I
+
+Now partition the new hypergraph
+
+If the partition cuts a migration net then the cost of migration gets counted in the overall communication cost
+This is the key idea that accounts for migration cost
+
+Parallel multilevel hypergdaph partitioning with fixed vertices
+
+Hg partition is NP hard, approximate using multilevel heuristics
+
+Like multigrid,  coarsen the graph and partition the coarsest level
+
+Propagate the partitions upward to the full graph
+
+
 \cite{doi:10.1142/S0129054197000215}
 \cite{Sbirlea:2014:BMS:2628071.2628090}
 
