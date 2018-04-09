@@ -596,7 +596,82 @@ Propagate the partitions upward to the full graph
 
 
 \cite{doi:10.1142/S0129054197000215}
+
+
 \cite{Sbirlea:2014:BMS:2628071.2628090}
+
+
+Concerned with scheduling when memory is limited.
+
+“For many parallel applications, the memory requirements can be significantly larger than for their se- quential counterparts and, more importantly, their memory utilization depends critically on the schedule used when run- ning them. “
+
+“Using the inspector/executor model, BMS tailors the set of allowable schedules to either guar- antee that the program can be executed within the given memory bound, or throw an error during the inspector phase without running the computation if no feasible schedule can be found. “
+
+“Since solving BMS is NP-hard, we propose an approach in which we first use our heuristic algorithm, and if it fails we fall back on a more expensive optimal approach which is sped up by the best-effort result of the heuristic. “
+“Unfortunately, parallel execution is known to increase mem- ory requirements compared to a serial baseline [8,11]. “	.	
+
+[8] Robert D. Blumofe and Charles E. Leiserson. “Scheduling multithreaded computations by work stealing”. In: J. ACM (1999). 
+
+[11] F. Warren Burton. “Guaranteeing Good Memory Bounds for Parallel Programs”. In: IEEE Trans. Softw. Eng. (1996) “
+
+[16] 	.I. Dooley et al. “A study of memory-aware scheduling in message driven parallel programs”. In: HiPC. 2010  
+
+This problem is a general case of the register sufficiency problem (NP hardness comes from this)
+
+Inspector/executor: inspector builds a task graph that shows parent-child task relationships and reader-writer relationship for the data (similar to Legion).
+Inspector identifies scheduling restrictions that lead to bounded-memory execution.  Enforce these restrictions in the executor stage when the app runs a load balancing work-stealing scheduler.
+
+Contributions:
+
+
+Heuristic algorithms for bounded memory scheduling (BMS) based on inspector/executor
+Optimal algorithm based on ILP
+
+Schedule memoization for heuristic algorithm
+
+Concurrent Collections Programming Model (CnC)
+
+Tasks (called steps)
+
+Step tag - identify specific instance of a step (task)
+
+items - dynamic single assignment variables
+
+Item collections - identified by key, collect related items together like a struct
+
+Step reads items by calling item\_collection.get(key), blocks waiting for data
+They claim that building the task graph dynamically is too late for bounding memory consumption (?)
+
+“Many analyses of task-parallel programs (such as data race detection) require understanding the task-parallel struc- ture of the computation, which is usually unknown at com- pile time. As a result, many of these analyses build the task graph dynamically, while the application is running. Unfor- tunately, this is too late for certain optimizations, such as bounding the memory consumption of the program. “
+
+“Expansion functions” augment the CnC task graph to provide the necessary information
+
+*******
+“If the keys of items read and written and tags of steps spawned are only a function of the current step tag, then the application has independent control and data, which is needed to accurately model an application using BMS. “ *****
+Sounds terrible!
+
+“If the keys and tags depend on the values of items, we say that the application has coupled control and data. 
+When faced with an application with coupled control and data, one possible solution is to include more of the com- putation itself in the graph expansion functions. In the extreme case, by including all the computation in the ex- pansion functions, we would be able to obtain an accurate dynamic task graph. Unfortunately, in the worst case, the computation would be performed twice, once for the expan- sion and once for the actual execution. However, our expe- rience is that many application contain independent control and data, thereby supporting the BMS approach. “
+
+Assume all tasks have unit size, relax this in section 8
+
+BMS heuristic algorithm is based on list scheduling
+
+If no acceptable solution is found, run the optimal algorithm
+
+5.1 successive relaxation of schedules
+Sort depth-first rather than breadth-first in the task graph (duh)
+
+5.2 color assignment
+Determines concurrent chains of tasks
+
+6. Optimal algorithm through ILP
+
+8.1 supporting multiple item sizes
+Assigns memory locations, deal with fragmentation that results from different sizes
+
+
+
 
 \subsection{heterogeneous}
 
