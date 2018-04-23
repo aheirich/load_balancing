@@ -676,6 +676,20 @@ Assigns memory locations, deal with fragmentation that results from different si
 \subsection{heterogeneous}
 
 \cite{Flegar:2017:OLI:3149704.3149767}
+
+
+
+Overcoming Load Imbalance for Irregular Sparse Matrices 
+Flegar and anzt. $IA^3$ ’17 : Irregular Applications Architecture and Algorithms
+
+GPU implementation of sparse matrix-vector product
+Uses COO format, row-column index of each element
+ELL format - store only nonzero, pad with zeros to give same vector length, for SIMD
+
+This is not a load balancing or mapping algorithm.  This is a matrix multiply algorithm that tries to be load balanced.
+
+
+
 \cite{8082085}
 \cite{7993387}
 \cite{Cederman:2008:DLB:1413957.1413967}
