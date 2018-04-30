@@ -689,9 +689,84 @@ ELL format - store only nonzero, pad with zeros to give same vector length, for 
 This is not a load balancing or mapping algorithm.  This is a matrix multiply algorithm that tries to be load balanced.
 
 
+\bigskip
 
 \cite{8082085}
+
+\bigskip
+
 \cite{7993387}
+
+A performance, power, and energy efficiency analysis of load balancing techniques for GPUs 
+
+Regular and irregular workloads, hard to give good performance in both cases.
+Dynamic multi-phase workload partition and work item-to-thread allocation.
+Low complexity, good results.
+Paper compares this to several other state of the art GPU lb algorithms.
+
+
+NV Maxwell GTX 980, NV Jetson Kepler TK1 (low power embedded).
+Work-units are grouped into work-items.
+BFS graphs: work-units are graph vertices; work-items are neighbors of each work-item.
+Prefix-sum-array holds offset to each work-item.
+
+
+PRIOR ART:
+
+Static mapping:
+
+
+[4] P. Harish and P. J. Narayanan, “Accelerating large graph algorithms on the GPU using CUDA,” in Proceedings of the 14th International Conference on High Performance Computing, ser. HiPC’07, 2007, pp. 197–208. 
+Simplest, one work item per thread, not load balanced
+
+[5] S.Hong,S.K.Kim,T.Oguntebi,andK.Olukotun,“AcceleratingCUDA graph algorithms at maximum warp,” in Proceedings of the 16th ACM Symposium on Principles and Practice of Parallel Programming, ser. PPoPP ’11, 2011, pp. 267–276. 
+Virtual warp (group of threads): workload assigned to threads of same group almost equal, therefore reduce branch divergence and improve memory coalescence.
+Have to size the virtual warp correctly to get performance, this is a static parameter.
+Good lb within a warp but not balanced across warps.
+
+Semi-dynamic mapping:
+
+[6] F. Busato and N. Bombieri, “BFS-4K: an efficient implementation of BFS for kepler GPU architectures,” IEEE Transactions on Parallel Distributed Systems, vol. 26, no. 7, pp. 1826–1838, 2015. 
+Dynamic virtual warps: VW calculated at runtime, lb within a warp and across warps.
+
+[7] D. Merrill, M. Garland, and A. Grimshaw, “Scalable GPU graph traversal,” in Proceedings of the 17th ACM SIGPLAN Symposium on Principles and Practice of Parallel Programming, ser. PPoPP ’12, 2012, pp. 117–128. 
+Perfect balance among threads and warps, but expensive strip-mine first step, not worth it for regular workloads, good for irregular.
+
+Dynamic mapping:
+
+All require binary search across prefix-sum array
+
+[8] A. Davidson, S. Baxter, M. Garland, and J. D. Owens, “Work-efficient parallel gpu methods for single-source shortest paths,” in Parallel and Distributed Processing Symposium, 2014 IEEE 28th International. IEEE, 2014, pp. 349–359. 
+Load prefix-sum chunks to GPU shared memory, process on GPU, do not guarantee balance across blocks, nor memory coalescing.
+
+[9] O. Green, R. McColl, and D. A. Bader, “Gpu merge path: a gpu merging algorithm,” in Proceedings of the 26th ACM international conference on Supercomputing. ACM, 2012, pp. 331–340. 
+[10] “Modern gpu library.” [Online]. Available: http://nvlabs.github.io/ moderngpu/ 
+9 and 10 propose similar methods, two phases: partition and expand.
+First partition prefix-sum array into balanced chunks.
+Second expand all threads load their chunks into shared memory, each thread binary searches the prefix-sum array to get the first assigned work unit.
+Balanced across threads, warps and blocks at the cost of two binary searches.
+Problem: memory accesses of the threads to work-units is badly scattered in memory.
+
+[12] F. Busato and N. Bombieri, “A dynamic approach for workload partitioning on GPU archi- tectures,” IEEE Trans. on Parallel Distributed Systems, vol. preprint, no. 99, pp. 1–15, 2016. 
+Multiphase: like two phase but at lower cost.
+
+A. Multi-Phase Technique
+
+Hybrid partitioning phase: each thread searches work-items switching between optimized binary search and interpolation search.
+Iterative coalesced expansion phase: all threads load chunks into shared memory; each thread does optimized binary search to get the work-unit; three iterative sub-phases reorganize memory access for better coalescence.
+
+1 writing on registers
+
+2 shared memory flush, data reorganization
+
+3 coalesced memory access
+
+Steps 2 and 3 repeat until all are processed.  Results perform better due to improved memory coalescence.
+
+Results (lots of data):
+Their method how lowest execution time and lowest energy use out of 12 methods.  Next best was virtual warps.
+
+
 \cite{Cederman:2008:DLB:1413957.1413967}
 \cite{10.1007/978-981-10-6442-5_56}
 \cite{dlbgraphgpu}
