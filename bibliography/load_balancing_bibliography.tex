@@ -768,7 +768,104 @@ Their method how lowest execution time and lowest energy use out of 12 methods. 
 
 
 \cite{Cederman:2008:DLB:1413957.1413967}
+
+
+2008 graphics hardware
+On dynamic load balancing on graphics processors
+
+Task weight not known in advance, new tasks created dynamically during execution.
+Compare 4 dlb methods, 1 is lock based.
+Test problem is octree partition of particles.
+Result: synchronization is very expensive, lock-free is better.
+
+4 dlb methods:
+Centralized blocking task queue (lock based),
+Centralized non blocking task queue,
+Centralized static task list,
+Task stealing.
+
+Thread level scheduling.
+Gpu thread block: equal size, all on one processor, fast local memory, barrier.
+Warp: 32 consecutive threads.
+Very old processors: 9600GT 512MB 64 cores.
+
+Task stealing performed best.
+
+
 \cite{10.1007/978-981-10-6442-5_56}
+
+A Load Balancing Strategy for Monte Carlo Method in PageRank Problem.
+PageRank can be solved by Monte Carlo (known result).
+Implement PageRank on GPU, deal with instruction divergence.
+“Adopt the low-discrepancy sequences to simulate the random walks in PageRank computations”
+“Each thread of a block to compute a random walk of each vertex with a same low-discrepancy sequence”
+
+PageRank: list the relevant pages in order.
+It’s a stationary vector of a random walk that simulates the process of surfing the internet.
+Interpret as frequency that a random surfer browses the web page, similar to popularity.
+
+Connectivity matrix P defines all hyperlinks.
+P-ij = 1/k if page has k outgoing links and j is one of the links,
+ = 1/n if page has no outgoing links,
+Else = 0.
+Surfer will choose next page from one of the links at random with p=c otherwise randomly from the web with p=(1-c).
+So this is a Markov process with transition matrix
+
+PP = c P + (1 - c) (1/n) E
+
+Damping factor c = 0.85,
+E is matrix of all ones.
+The PageRank is the stationary distribution of the Markov chain, row vector pi such that
+pi PP = pi , pi 1 = 1
+
+Linear algebra methods compute pi using power method iteration, pi := pi PP, approximately linear in n.
+Monte Carlo methods are faster and highly parallel.
+This paper considers efficient Monte Carlo on GPU.
+
+Optimization issues:
+
+Instruction divergence
+
+Load balancing between threads of a warp
+
+Memory access conflicts between threads
+
+Cache performance among threads
+
+Local memory utilization
+
+Instruction divergence in Monte Carlo occurs because random numbers are different so Markov chains diverge.
+So they replace random sequences with “low discrepancy” sequences that are repeatable and identical, they reduce the variance of Monte Carlo Sampling [9-11]
+
+9. Cervellera, C., Macciò, D.: Low-discrepancy points for deterministic assignment of hidden  weights in extreme learning machines. IEEE Trans. Neural Netw. Learn. Syst. 27(4), 891– 896 (2016) 
+
+	10.	Gan, G., Valdez, E.A.: An empirical comparison of some experimental designs for the valuation of large variable annuity portfolios. Dependence Model. 4(1) (2016) 
+
+	11.	Zapotecas-Martínez, S., Aguirre, H.E., Tanaka, K., et al.: On the low-discrepancy sequences and their use in MOEA/D for high-dimensional objective spaces. In: 2015 IEEE Congress on Evolutionary Computation (CEC), pp. 2835–2842. IEEE (2015)  
+We propose a divergence avoidable strategy to allocate the threads of a block to compute a random walk of each vertex with identical low-discrepancy sequence. Hence, the threads of a block will simultaneously execute same instruction to compute next state of Markov chain or terminate. We can address the instruction divergence by our strategy. 
+
+The static load balancing strategy pre-computes the length of each Markov chain to reduce the cost of absorbing state determination. The dynamic load balancing strategy dynamically determines the length of Markov chains to avoid the cost of loop condition determination. We will use experiments to test the efficiency of two strategies. 
+
+Another optimization is that we load the low-discrepancy sequences into shared memory to speed up data fetch operations. 
+
+The experiments indicate the bottleneck of our strategy is the memory access conflicts between threads. 
+we store the adjacency matrix of a graph as the Compressed Sparse Row (CSR) format 
+Since each random walk can be simulated independently, we can easily assign the computation of each walk for each thread. Furthermore, the all random walks begin from same node will be assigned to one block and all threads in a block simulate all random walks starting from one vertex in parallel. 
+the time performance of a block will be critically influenced by the thread with longest random walks. 
+So we try to use the determinacy of quasi random numbers to solve this problem.
+
+Static load balancing
+
+Wk, the expectation number of random walks whose length is k. we can call T kernels which have constant number of threads, Wk, each kernel computes k steps so that random walks in block have same length, in other words under same workload.   
+all threads in a block have same workload, as a result, the warp execution efficiency will be improved. 
+Their experiments show the dynamic lb made a minor improvement to the static lb case.
+
+This is a good paper.
+
+
+
+
+
 \cite{dlbgraphgpu}
 
 
