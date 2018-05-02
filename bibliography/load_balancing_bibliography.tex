@@ -869,6 +869,53 @@ This is a good paper.
 \cite{dlbgraphgpu}
 
 
+Dynamic Load Balancing Strategies for Graph Applications on GPUs 
+
+Existing work: node-based work-assignment to threads, gives poor load balance; edge-based requires lots of memory.
+New work: three improvements to ameliorate these problems
+
+Breadth-first search BFS;
+Single source shortest past SSSP;
+Minimum spanning tree MST;
+“Betweenness centrality”;
+Graph500 benchmark database.
+
+Node-based assignment leads to load imbalance if the degree of the nodes is not uniform, works well for data in Compressed Sparse-Row (CSR) format.
+
+Edge-based don’t have this problem but require reformatting the data to Coordinate List (COO).  Takes too much storage to handle large graphs on limited GPU memory.
+Edge based requires distributivity in the operator which is not always possible,
+
+Three contributions:
+Workload decomposition - assign edges, but only for nodes on the active list
+Node splitting - split a high degree node into multiple low degree nodes
+Hierarchical processing - hierarchy of work lists
+
+Evaluated on BFS and SSSP algorithms
+
+Workload decomposition:
+
+In this approach, the processing elements in the worklist continue to be the nodes, but the workload of the nodes, namely, the edges, are decomposed across threads using a block distribution. E number of graph edges are partitioned across T threads such that each thread receives a contiguous chunk of E/T edges for processing. Thus, a given thread processes a subset of edges corresponding to a subset of nodes and all the edges outgoing from a node may not be processed by the same thread. 
+
+An advantage of workload decomposition is that it works with the CSR format and therefore, has a lower space com- plexity. 
+A drawback of the workload decomposition is that it can lead to uncoalesced accesses since a node’s edges may get separated. 
+In our experiments, we observe that the limitations of work- load decomposition affect its performance for large-diameter graphs (such as the road networks) but the method performs very well for scale-free graphs such as the social network 
+
+Node splitting
+
+node splitting preprocesses the graph to split each high-degree node into multiple low-degree child-nodes.
+node-splitting approach has the advantage that it can work with the space-efficient CSR representation. 
+A salient feature of our node splitting strategy is to automatically determine the threshold MDT for node splitting. Obvious methods based on a threshold or max-degree etc. do not work in general.   we use a histogram based method in which we use HistogramBinCount number of bins representing the ranges of out-degrees of the nodes in the original graph. 
+
+An advantage of the node splitting approach is that it con- tinues to work with the space-efficient CSR format.
+all the edges of a node are processed by the same thread, reducing bookkeeping and improving the scope for memory coalescing. The primary disadvantage of node splitting is that it results in extra atomic operations to update the child nodes whenever the parent node gets updated. A secondary disadvantage is the overhead of computing the histogram to find the MDT. 
+
+node- splitting provides considerably better load-balancing. In ad- dition, it provides comparable performance for large diameter graphs (such as road networks); but it has a high overhead for power-law degree distribution graphs. 
+
+Hierarchical processing
+
+Hiearchical processing performs a time-decomposition of the workload. It achieves this by partitioning the main (super) worklist into several sub-worklists. If the sub-worklist is large, it can be further partitioned into sub-sub-worklists, and so on. This builds a hierarchy of worklists. The depth of this hierar- chy is tunable, and we utilize the histogram-based approach in node-splitting (Section III-B) for finding the maximum degree threshold (MDT) which determines when to split a worklist into sub-worklists. 
+
+Compared BFS and SSSP to implementing from LonestarGPU which uses node-based distribution.
 
 
 \subsection{large scale}
