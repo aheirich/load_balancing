@@ -694,6 +694,29 @@ This is not a load balancing or mapping algorithm.  This is a matrix multiply al
 \cite{8082085}
 
 \bigskip
+Dynamic Load Balancing on Multi-GPUs System for Big Data Processing 
+
+This paper presents a novel dynamic load balancing model for heterogeneous multi-GPU systems based on the fuzzy neural network (FNN) framework. The devised model has been implemented and demonstrated in a case study for improving the computational performance of a two dimensional (2D) discrete wavelet transform (DWT). 
+
+Chen et al. [7] proposed a task-based dynamic load balancing solution for multi-GPU systems that can achieve a near-linear speedup with the increase number of GPU nodes. Acosta et al. [8] had developed a dynamic load balancing functional library that aims to balancing the load on each node according to the corresponding system runtime. However, these pilot studies are based on the assumptions that all GPU nodes equipped in a multi- GPU platform have equal computational capacity. In addition, the task-based load balancing schedulers these approaches relied upon fall short to support applications with huge data throughputs but limited processing function(s) since there are very few “tasks” to schedule, e.g. DWT. 
+
+	.	[7]  L.Chen,O.Villa,S.Krishnamoorthy,andG.R. Gao, “Dynamic Load Balancing on Single- and Multi-GPU Systems,” Ipdps, 2010.  
+
+	.	[8]  A.Acosta,R.Corujo,V.Blanco,F.Almeida,H.P. C. Group, and E. T. S. De Ingenier, “Dynamic Load Balancing on Heterogeneous Multicore / MultiGPU Systems,” 2010.  
+
+Their algorithm: divide work into equal size units; dynamically schedule those units according to evolution of dynamic workload; use fuzzy neural network to do this (?)
+
+Fuzzy neural network predicts execution time for each GPU based on: flops rate; memory size; parallel scaling; occupancy rate of compute resources; occupancy rate of global memory.
+Train neural network based on historical records.  (Main advantage seems to be that it allows GPUs to have different capacities).
+
+
+CASE STUDY - discrete wavelet transform
+Same amount of work per work-item.
+Study used two different GPUs of different capacities.
+Only experimented with two GPUs.
+
+I do not think this paper is a good idea.
+
 
 \cite{7993387}
 
