@@ -944,6 +944,43 @@ Compared BFS and SSSP to implementing from LonestarGPU which uses node-based dis
 \subsection{large scale}
 
 \cite{PEARCE2017}
+
+
+Notes on Exploring dynamic load imbalance solutions with the CoMD proxy application 
+
+CoMD - exascale codesign center applications, molecular dynamics
+Proxy application to allow load balancing study
+Parameterize: work granularity; initial imbalance; dynamic imbalance
+Study a “wide range of initial and dynamic load imbalance scenarios”
+
+High/low initial imbalance
+Fast/slow rate of change for dynamic imbalance
+
+Related work
+Charm++ developed AMPI adaptive MPI
+Over decompose the simulation domain, then balance by moving virtual processors
+
+Molecular dynamics with interaction cutoff radius
+Use a regular 3D grid to partition the particles
+Ghost cells, periodic boundary conditions
+MPI implementation (others exist)
+
+Initial imbalance: remove some atoms in a spherical region
+Dynamic imbalance: change simulation to cause particles to drift
+Overdecompose, many domains per processor, keep a domain graph
+
+“Simple load balancing algorithm based on spatial sort”
+Spatially sort domains using a Hilbert curve
+Partition the curve between processors
+Centralized lb algorithm
+
+Results
+Lb algorithm cost grows because it is centralized
+Fastest simulations use 8x over decomposition plus load balancing
+
+No real conclusions
+
+
 \cite{BERLINSKA201814}
 \cite{8017633}
 \cite{DEVINE2005133}
