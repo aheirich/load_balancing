@@ -981,4 +981,30 @@ author = "Kirk Schloegel and George Karypis and Vipin Kumar",
 abstract = "For a large class of irregular mesh applications, the structure of the mesh changes from one phase of the computation to the next. Eventually, as the mesh evolves, the adapted mesh has to be repartitioned to ensure good load balance. If this new graph is partitioned from scratch, it may lead to an excessive migration of data among processors. In this paper, we present schemes for computing repartitionings of adaptively refined meshes that perform diffusion of vertices in a multilevel framework. These schemes try to minimize vertex movement without significantly compromising the edge-cut. We present heuristics to control the tradeoff between edge-cut and vertex migration costs. We also show that multilevel diffusion produces results with improved edge-cuts over single-level diffusion, and is better able to make use of heuristics to control the tradeoff between edge-cut and vertex migration costs than single-level diffusion."
 }
 
+@inproceedings{Mitzenmacher:1998:ALS:277651.277687,
+ author = {Mitzenmacher, Michael},
+ title = {Analyses of Load Stealing Models Based on Differential Equations},
+ booktitle = {Proceedings of the Tenth Annual ACM Symposium on Parallel Algorithms and Architectures},
+ series = {SPAA '98},
+ year = {1998},
+ isbn = {0-89791-989-0},
+ location = {Puerto Vallarta, Mexico},
+ pages = {212--221},
+ numpages = {10},
+ url = {http://doi.acm.org/10.1145/277651.277687},
+ doi = {10.1145/277651.277687},
+ acmid = {277687},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ abstract = "In this paper we develop models for and analyze several
+randomized work stealing algorithms in a dynamic setting.
+Our models represent the limiting behavior of systems as
+the number of processors grows to infinity using differential
+equations. The advantages of this approach include the
+ability to model a large variety of systems and to provide
+accurate numerical approximations of system behavior even
+when the number of processors is relatively small. We show
+how this approach can yield significant intuition about the
+behavior of work stealing algorithms in realistic settings. "
+} 
 
