@@ -982,6 +982,108 @@ No real conclusions
 
 
 \cite{BERLINSKA201814}
+
+
+Comparing load-balancing algorithms for MapReduce under Zipfian data skews 
+Joanna Berlinska, Maciej Drozdowski 
+
+Map-reduce = mapping, shuffling, sorting, reducing.
+Unequal distribution of keys causes imbalance.
+They valuate four types of algorithms to balance work during last three phases.
+Conclusion: hybrid methods are necessary.
+
+Map produces (key1, value1) pairs.
+A “cluster” is a set of pairs with the same key1.
+Reduce produces (key2, value2) pairs.
+“Data skew” = unequal distribution of cluster sizes.
+Routing of work from mappers to reducers is driven by key1 values.
+
+Non-uniform distribution of key1 results in unequal sizes of mapper output files, therefore imbalance in the shuffle phase.
+Different frequencies of key1 result in unequal sorting and reducing times.
+
+In this study the analysis cannot be performed by measurement there use math models and simulation.
+Contributions:
+Performance models for map-reduce; power-law (zipfian) distributions of keys are used.
+Four algorithms proposed to mitigate skew, implemented in a simulator, evaluated.
+
+M - number of mappers
+R - number of reducers
+Omega - space of key1
+$k_i$ in Omega : ith key
+$sigma_i$ - size of cluster of $k_i$
+
+Map phase - process equal sized “splits”, write output files with $key_i$ clusters in same file
+Partitioning function - chooses output file for $key_i$
+Partition - set of keys for which partitioning function return the same value
+R - number of partitions
+
+$s_j$ - size in bytes of partition j (sum of $sigma_i$)
+Partitions are disjoint, and cover all of Omega
+Partitioning function is usually of the form “hash($key_i$) mod R”
+
+At the end of the mapping phase each mapper holds R local output files.
+
+V - total size of input data set
+Each mapper processes V/m bytes and produces Vpsi/m output bytes.
+All mappers finish at the same time.
+
+Master assigns partitions to reducers.
+They model communication bandwidth during the shuffle phase.
+After reading the assigned partitions reducers start processing them.
+Sort key-value pairs by key1, non-preemptive, not transferable
+Process them in log-linear time
+Store the results in the distributed file system
+
+Assume keys are distributed according to a power law (see equation 1)
+Distribution at z=0 is normal, at z=1 is Zipfian
+Evidence fro analyzing logs shows power law distribution of keys in real Hadoop runs.
+
+It is hard to build an optimal MapReduce schedule in advance, data skews mu be overcome online (dynamically).
+Four algorithms are proposed: easy or hard key partitioning, cropss linear or log linear key sorting cost.
+Easy partitioning - random assignment of keys to reducers,
+Hard partitioning - sorted keys assigned to reducers in order.
+
+4.1 reference distribution algorithm
+Round robin assignment of keys to reducers.
+No load balancing.
+Equation (2) gives optimistic prediction of time for this algorithm.
+
+4.2 static algorithm
+Over decomposition, create any partitions and assign the to reducers to achieve load balance.
+Requires np-hard bin packing problem solution, approximate with a heuristic.
+
+4.3 multi-dynamic algorithm
+Similar to work stealing among reducers.
+
+4.4 mixed algorithm
+Combines the static and dynamic algorithms.
+
+4.5 divide keys algorithms
+Partitioning function is created at runtime.
+Divide one key cluster among multiple reducers.
+Merge the results after.
+
+5. Events simulation.
+Simulated everything.  Too hard to instrument real code.
+
+6.1 data skew
+Best performance was the mixed algorithms with medium data skew.
+With large data skew divide keys was necessary.
+
+6.2 size of intermediate data
+When size is large use divide-keys
+
+6.3 reducer parameters
+
+6.4 communication parameters
+For large C mixed is better than divide-keys.
+
+7. Summary and conclusions
+The static algorithm adjusts the load distribution before the shuffle phase, using the idea of fine partitioning (a.k.a. overdecomposition). The multi-dynamic algorithm performs many simple load balancing operations in the reducing phase. The mixed algorithm processes a part of data like the static algorithm, and sends the chunks containing the remaining data on requests from idle reducers. Finally, the divide-keys algorithm computes a partitioning function adjusted to the input data distribution and allows processing a key cluster on several reducers. 
+1. If data skew is small (z <= 0.4), the best choice is in most cases algorithm mixed(0.5). 2. When the skew is moderate (0.5 <= z <= 0.7), algorithm mixed(0.9) usually obtains the best results. 3. When the skew is big, the winning algorithm depends more on the system parameters. 
+(a) If a red, gamma 1, C are small, and gamma, m, V are big, then algorithm divide-keys is the best. (b) In the opposite case it is better to use mixed(0.5). 
+
+
 \cite{8017633}
 \cite{DEVINE2005133}
 \cite{javataskpool}
