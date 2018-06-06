@@ -1086,6 +1086,27 @@ The static algorithm adjusts the load distribution before the shuffle phase, usi
 
 \cite{8017633}
 
+Dynamic Load Balancing Based on Constrained K-D Tree Decomposition for Parallel Particle Tracing 
+
+evenly redistribute particles across processes based on k-d tree decomposition. Each process is assigned with (1) a statically partitioned, axis-aligned data block that partially overlaps with neighboring blocks in other processes and (2) a dynamically determined k-d tree leaf node that bounds the active particles for computation; the bounds of the k-d tree nodes are constrained by the geometries of data blocks 
+In the task- parallel methods, particles are statically distributed to parallel processes; each process has access to the whole data.  In the data- parallel methods, the flow data are statically partitioned into blocks and distributed to processes; particles exchange between processes to finish the tasks. 
+In this design, each process is as- signed with (1) a statically partitioned, axis-aligned data block that partially overlaps with neighboring blocks in other processes and (2) a dynamically determined k-d tree leaf node that bounds the active particles for computation. 
+In static data partitioning, we initially subdivide the domain into n non-overlapping, equal-sized, and axis-aligned blocks, where n equals the number of processes. We then expand the blocks to overlap with other blocks as much as possible, given the memory limit of the process. The expanded parts, called ghost layers, essentially maximize the overlaps between blocks under the memory limit and thus enable the k-d tree decomposition with con- straints. During run time, we periodically redistribute particles based on the constrained k-d tree decomposition to balance the workload. 
+Task-parallelism does not work well for this problem.
+In our study, we redesigned the parallel tree construction algorithm for constrained k-d trees. We further use the constrained k-d trees to balance the number of particles in parallel processes in order to achieve dynamic load balancing. 
+We first partition the input data into non-overlapping, equal-sized, axis-aligned blocks and then expand the ghost layers of each block up to the memory limit of each process. The blocks are loaded into memory, and the particles are initialized in the corresponding blocks.  Each particle is assigned to the block whose  “core” region excluding ghost layers contains the particle. 
+
+The computation stage is an iterative process that alternately exe- cutes the particle redistribution and particle tracing. In the particle redistribution phase, the parallel processes collectively exchange un- finished particles based on the constrained k-d tree decomposition. In the particle tracing phase, each parallel process independently traces its unfinished particles without communication. 
+We conducted a comprehensive performance study with three applica- tions: tracing densely-seeded streamlines in thermal hydraulics simu- lation (Nek5000) data, querying source-destinations in GEOS-5 sim- ulation data, and computing FTLE of Hurricane Isabel data.  In our test, we execute 8 processes per compute node, and we use up to 8,192 processes on Blue-Gene/Q.
+The baseline approach in the performance study is a data-parallel particle tracing implementation. The initialization stage of the baseline approach is the same as in Section 4. The computation stage alternates the independent particle tracing and the collective particle exchange phases  
+Our method does not require any data pre- processing.   Our method does not rely on any flow feature analysis.   We make no assumptions about the initial parti- cle distribution.  Our method supports both static and time- varying data in both 2D and 3D meshes, because k-d trees can decom- pose spaces in arbitrary dimensions.  The data movement of our method is minimal.  The distributed k-d tree decomposition is self-consistent and decentralized. 
+Our method does not guarantee optimal and perfect load balancing.  processes have different workloads even if they are assigned the same number of particles.  the constrained k-d tree decomposition does not guarantee an even distribution of particles.  the k-d tree could be imbalanced.   at worst, when the ghost layers just overlap, our method degenerates to the baseline method because the splitting planes will be in fixed positions. 
+
+
+
+
+
+
 \cite{DEVINE2005133}
 
 New challenges in dynamic load balancing(2005)
