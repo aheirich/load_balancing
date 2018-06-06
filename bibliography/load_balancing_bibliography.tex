@@ -1085,7 +1085,52 @@ The static algorithm adjusts the load distribution before the shuffle phase, usi
 
 
 \cite{8017633}
+
 \cite{DEVINE2005133}
+
+New challenges in dynamic load balancing(2005)
+Devine et al
+
+Lb not solved, new models needed for non-square, non-symmetric, and highly-connected systems.  Heterogeneous architecture require non-uniform computing, network and memory.  These capabilities should be delivered in toolkits (e.g. Zoltan)
+RB=recursive bisection, SFC=space filling curve
+Zoltan framework provides many different partitioning algorithms.
+
+Geometric partitioning by graph connectivity: good for FEM.  But crash sim requires geometric locality rather than connectivity.  Particle methods are better with locality (there is no graph).
+
+Zoltan supports 
+RB (coordinate, intertial)
+and
+SFC.
+Geometric methods are effective when locality is important and/or graph is not available.
+They do not account for communication costs.
+
+Crash simulations require point- and box-assignment of objects to partitions.  They have a novel way to do this, shows some benefits.
+
+Multicriteria geometric partitioning:
+multiple constraints versus multiple objectives.
+In DLB time to solution is more important than solution quality.
+Introduced a heuristic for bisection of vector-valued criteria.
+Table shows results, not dramatically different from ParMetis results.
+
+Hypergaph models:
+High connectivity, heterogenous topology, non-symmetric matrices.
+“Because edges in the graph model are non-directional, they imply symmetry in all relationships, making them appropriate only for problems represented by square, symmetric matrices. Non-symmetric systems A must be represented by a symmetrized model $A + A^T $”
+I do not agree, graphs can be directional.
+
+Hypergraph models do not imply symmetry.
+Each edge contains two or more related vertices, not just two vertices.
+Serial hyper graph partitioning supplied by Metis but parallel partitioners are needed.
+Example 3: hyper graph.
+Only small advantage for FEM graph.
+Showed better advantage in partition a polymer self-assembly simulation (Tramonto) with complex sparsity pattern.
+
+Resource-aware load balancing for heterogeneous architectures.
+DRUM=Dynamic Resource Utilization Model, provides system characteristics.
+Tree structure of all processors, compute at the nodes.
+Experiment using PHAML=parallel hierarchical adaptive multilevel software.
+Showed better results than uniform partitioning.
+
+
 \cite{javataskpool}
 \cite{barat:tel-01672546}
 
