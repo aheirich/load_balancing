@@ -1153,7 +1153,164 @@ Showed better results than uniform partitioning.
 
 
 \cite{javataskpool}
+
+
+
 \cite{barat:tel-01672546}
+
+
+Load balancing of multiphysics simulations by multi-criteria graph partitioning
+(Thesis, university of Bordeaux)
+
+Multiphysics with several computational phases.
+For each phase, balance the workload and minimize the communication.
+Problem is NP-hard, this thesis explores heuristic solutions.
+Suggest improvements to “the multilevel algorithm”.
+Two algorithms based on vertex movement: move any vertex that improves the solution; move the vertex that makes the largest improvement to the solution.
+Results: their methods returned balanced partitions where MeTiS fails regularly.
+
+Mesh based simulations.
+Vertex weight indicates workload.
+Multiphysics simulations has a vector of weights at each vertex.
+
+Multilevel algorithm = coarsening phase, partitioning phase, refinement phase.
+They will show improved heuristics for coarsening and refining, and explore various forms of partitioning.
+
+S - set.
+P(S) - set of all subsets of S.
+Pk(S) - set of all subsets of S of size k.
+
+Note that communication may be overlapped with computation, so estimating time for a task should allow for this (don’t necessarily sum computation + communication).
+
+User must provide a communication cost for each cell (not provided by a dependency graph).
+Assume communication costs are proportional to data volume, ignore startup latency,
+(Note that this does not account for how far the data has to travel, only on its volume).
+So minimizing communication cost in the algorithm will not maximize locality.  This cost also does not account for congestion.
+
+2.1.4 from multi-objective to constrained mono-objective
+
+Definition 11 (imbalance)
+$imb_c(PI_p) = (total - mean) / mean$        for criterion c in part p
+$imb(PI) = max imb_c over all PI_p$
+
+Hypergraphs, hyper edges.
+Vertices are taken from the original graph.  Hyperedges may span multiple vertices.
+One hyper edge for each vertex, contains vertex and its neighbors.  Figure 2.3.1.
+A partition of a hypergraph is a partition of its vertices.
+
+$cut_{\lambda-1}(e)$ is the amount of data that must be sent from $e$ to each partner cell.
+$\lambda-1$ is the number of partners.
+
+2.4
+Definition 17: dual graph of a mesh.
+
+NP-completeness of multi-criteria graph partitioning:
+$GP_\gamma$ is multi criteria graph problem.
+$GPD_\gamma$ multi criteria graph decision problem (“does there exist a partition…”)
+Hyafil and Rivest (1973) showed $GDP_1$ is NP-complete when communication cost is the edge cut function.
+
+2.5 vector-of-numbers partitioning (problem subset sum with multiple criteria)
+3 survey of algorithms for vector-of-numbers problem
+
+“Dynamic programming can solve the number partitioning problem is pseudo-polynomial time”.
+
+(Gent and Walsh 1998) $n$ numbers drawn uniformly and randomly from [1,u],
+$\kappa = \frac{\log_2(u)}{n}$ is the number of perfectly balanced partitions.
+$\kappa << 1$ are underconstrained, most candidate solutions are balanced,
+$\kappa >> 1$ are overconstrainted, most candidate solutions are not balanced.
+
+3.2.1 greedy algorithm, heuristic, $O(n \log n)$
+Places largest number in the lightest part.
+
+3.2.2 karmarkar-karp heuristic KK
+Places largest two numbers into different parts.
+
+3.2.3 dynamic programming (Garey and Johnson 1979)
+This algorithm only works for integers and is designed for bi-partitioning.
+Builds an array for each possible sum and tracks whether a subset exists.
+
+3.2.4 optimized dynamic programming, Horowitz and sahni (HS) and Schroeppel and Shamir (SS)
+Also works on integers only.
+Computes exhaustive subsets.
+
+3.2.5 complete greedy algorithm (CGA)
+Enumerates all possible partitions using a $k$-ary tree.
+
+3.2.6 complete karmarkar-karp heuristics (CKK)
+
+3.2.7 stochastic search
+
+3.3 comparison of number partitioning algorithms
+Table 3.3.1, 3.3.2
+
+Chapter 4 mesh partitioning
+Recursive bisection, geometric algorithms, topological (spectral partitioning), 
+Greedy graph growing, topological refinement (kernighan-lin 1970, vertex swapping).
+Fiduccia-Mattheyes (FM), vertex movement (as opposed to swapping).
+
+4.5 the multilevel algorithm
+Coarsening phase: cluster vertices together.
+Direct partitioning algorithm applied to coarsened graph.
+Expansion phase (uncoarsen).
+
+5. Analysis of fitness landscapes
+
+A lot of unsurprising discussions about the state space and existence of solutions
+
+6. Analysis of new coarsening schemes
+
+Survey of graph partitioning schemes, maybe read this:
+Buluç, A, Meyerhenke, H., Safro, I., Sanders, P. and Schulz, C., 2015. Recent advances in graph partitioning. In Algorithm Engineering: Selected Results and Surveys, LNCS 9220. Springer-Verlag. 
+This chapter will not introduce any new coarsening scheme.
+It analyzes existing schemes.
+
+coarsening is a maximum weight matching problem: coarsen (group together) where the edge weights are maximal, to remove them from the communication pattern.
+Exact solutions are too expensive even though they are polynomial in time.
+
+Heavy edge matching, effect of ordering schemes based on edge weights, vertex weights.
+
+
+7. Initial partitioning phase
+
+Vector-of-numbers partitioning.
+Descent methods (greedy steepest descent) chooses to remove a vertex to reduce imbalance.
+Lots of details.
+
+
+8. Local optimization refined reduces communication cost while preserving balance
+
+This is the expansion phase of the multilevel algorithm.
+FM: move one vertex at a time;
+KL: swap pairs of vertices.
+Tie-breaking between moves of the same gain.
+
+Not relaxing the imbalance tolerance allows us to define a simple version of the FM algorithm. The key features follow classic implementations: we do not allow moves that imbalance the partition more than the tolerance, we stop a pass after 120 moves of negative gains, and we stop the algorithm when the last pass did not improve the communication cost. 
+
+Therefore, unlike most partitioning tools, which often return partitions that are not solutions because they prioritize the communication cost over the partition imbalance, we designed our multilevel algorithm to first aim at returning a balanced partition, and then minimize the communication cost. To this extent, we first proposed in Chapter 6 several coarsening schemes and analyzed them, and we will compare their performance in the next part. Then, in Chapter 7, we defined two vector-of-numbers initial partitioning algorithms that focus on minimizing the imbalance of the initial partition. Finally, in Chapter 8, we described our refinement algorithm, which is simple because it focuses plainly on minimizing the communication cost. In the next part, we will examine the consequences of using different coarsening schemes and different initial partitioning algorithms. 
+
+9. Experimental results
+
+3D mesh named LMJ has 484,356 vertices.
+Used weight distributions based on particle-in-cell calculations.
+MetTiS often failed to return solutions.
+
+10. Comparison of heuristics
+
+The main results are: 
+our initial partitioning algorithm VNBest returns partitions of the coarsest graph with the smallest imbalance on average. Nevertheless, the evolution of the average imbalance showed that GGG was able to catch up with VNBest at finer levels; 
+
+for a tolerance of 5\%, using GGG or VNBest does not change much the distribution of the communication cost of the returned solutions. However, when the tolerance tightens, algorithms relying on VNBest do not manage to return as many solutions close to an optimal solution; 
+
+enforcing restrictions on the vertex weights during the coarsening phase leads each initial partitioning algorithm to return more balanced solutions. This result supports our claim that bounding the vertex weights simplifies the search for a solution; 
+restrictions also decreased the communication cost of the returned so- lutions, which sides with our claim that bounding the vertex weights simplifies the search for an optimal solution. However, how to find the optimal bound remains an open question. In our experiments, we relied on the Restrict 8 policy; 
+
+ordering the vertices before computing the matching is of great importance. In particular, the order must not always schedule the vertices in the same order, and must take into account the graph topology; 
+
+comparison with other partitioning tools showed that, unlike the others, our approach always returned a solution. In particular, MeTiS policy to relax the imbalance tolerance leads to counter-intuitive results, when MeTiS finds more solutions for a tighter tolerance. This was particularly true on the industrial case, for which MeTiS returned 0 solutions for a tolerance of 5\%, but found some when the tolerance was of 1\%, whereas Crack and Scotch managed to always return a solution; 
+
+in addition to always returning a solution, our approach achieves to return partitions of small communication cost, even clearly smaller in some cases; 
+
+our approach is also efficient for k-partitioning using the recursive bisection scheme. The communication cost is as small as when using other partitioning tools, and on the industrial test case, it manages, unlike MeTiS, to always return a solution. 
 
 
 
